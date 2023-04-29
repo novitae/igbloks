@@ -1,53 +1,67 @@
-from pydantic import BaseModel, Field
-from collections import deque
-from typing import Dict, Any
-
-def create_dataclasses(data: Dict[str, Dict[str, Any]]):
-    created_dataclasses = set()
-    queue = deque(data.keys())
-
-    while queue:
-        name = queue.popleft()
-        fields = data[name]
-
-        # Vérifie si toutes les dépendances sont créées
-        dependencies_created = True
-        for field_info in fields.values():
-            if field_info["types"][0] == "dict":
-                referenced_dataclass = field_info["values"][0]
-                if referenced_dataclass not in created_dataclasses:
-                    dependencies_created = False
-                    break
-
-        # Si toutes les dépendances sont créées, créez la dataclass
-        if dependencies_created:
-            print(f"""class {name.replace(".", "_").replace('|', '__or__')}(BaseModel):""")
-
-            for field, field_info in fields.items():
-                readable_field, compressed_field = field.split("|")
-                field_type = field_info["types"][0]
-                if field_type == "dict":
-                    field_type = field_info["values"][0].replace(".", "_").replace('|', '__or__') + "__container"
-
-                compressed_field_repr = repr(compressed_field)[1:-1]  # Utilisez repr() et retirez les guillemets
-                readable_field = readable_field.replace(".", "").replace("|", "")
-                print(f"    {readable_field}: {field_type} = Field(None, alias='{compressed_field_repr}')")
-
-            container_class_name = name.replace(".", "_").replace('|', '__or__') + "__container"
-            container_name, container_alias = name.replace(".", "").split("|")
-            print(f"""\nclass {container_class_name}(BaseModel):""")
-            print(f"    {container_name}: {name.replace('.', '_').replace('|', '__or__')} = Field(None, alias='{container_alias}')\n")
-
-            created_dataclasses.add(name)
-            print()
-        else:
-            # Remet l'objet en attente pour un traitement ultérieur
-            queue.append(name)
-
 import json
-# Charge les données structurées précédemment sauvegardées
-with open("bloks_structure.json", "r") as f:
+
+# se méfier du "㐵|flex"
+
+def decompose_name(name: str) -> tuple[str, str]:
+    return tuple(sorted(name.split('|'), key=lambda item: len(item)))
+
+def create_pydantic(data: dict[str, dict]) -> str:
+    result = [
+        "from pydantic import BaseModel, Field, validator\n",
+        "class Branch(BaseModel):",
+        "    @validator('*', pre=True)",
+        "    def validate(cls, value):",
+        "        return value",
+        "",
+        "class _UnSet: pass",
+        "UnSet = _UnSet()",
+        "",
+    ]
+
+    for object_name, object_fields in data.items():
+        short_on, long_on = decompose_name(object_name)
+        class_name = long_on.replace(".", "_")
+        result.append(f"""class {class_name}__{short_on}(Branch):""")
+
+        to_validate: list[tuple[str, str]] = []
+
+        for field_name, field_attrs in object_fields.items():
+            short_fn, long_fn = decompose_name(field_name)
+            is_list = field_attrs["types"][0] == "list"
+            if field_attrs["types"][0] in ["list", "dict"]:
+                raw_ftypes = list(set(map(lambda item: decompose_name(item), field_attrs["values"])))
+                field_types = list(map(lambda item: item[1].replace(".", "_") + "__" + item[0], raw_ftypes)) or field_attrs["types"]
+            else:
+                field_types = field_attrs["types"]
+            field_types_str = " | ".join(field_types)
+            field_types_str = f"list[{field_types_str}]" if is_list else field_types_str
+            result.append(f"""    {long_fn}: {field_types_str} = Field(UnSet, alias='{short_fn}')""")
+
+            if len(field_types) > 1:
+                to_validate.append((long_fn, raw_ftypes, is_list))
+        
+        if to_validate:
+            result.append(f"""\n    @validator({", ".join([f"'{name[0]}'" for name in to_validate])}, pre=True)""")
+            result.append("    def validate(cls, value) -> Branch:")
+
+            result.append("        def find_type(v):")
+            for x, (_, varn, is_list) in enumerate(to_validate):
+                for short_varn, long_varn in varn:
+                    result.append(f"""            {"elif" if x else "if"} '{short_varn}' in v:""")
+                    cls_nm = f"""{long_varn.replace(".", "_")}__{short_varn}"""
+                    if is_list:
+                        result.append(f"""                return [{cls_nm}(**item) for item in v]""")
+                    else:
+                        result.append(f"""                return {cls_nm}(**v)""")
+
+            result.append(f"""            else:\n                raise ValueError(f'class not found for {{v}}')\n""")
+            result.append('        return find_type(value)')
+        result.append("")
+
+    return "\n".join(result)
+
+with open("_bloks_structure.json", "r") as f:
     bloks_data = json.load(f)
 
-# Génère le code des dataclasses
-create_dataclasses(bloks_data)
+with open("pyd.py", "w") as write:
+    write.write(create_pydantic(bloks_data))
