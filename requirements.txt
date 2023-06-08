@@ -1,2 +1,2 @@
 json5
-pydantic
+pyparsing
