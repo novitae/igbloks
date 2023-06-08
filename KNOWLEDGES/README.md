@@ -9,6 +9,7 @@ The urls are looking as following:
 - `APP_NAME` is the name of the blok endpoint to call.
 - As an example, using the `com.instagram.interactions.about_this_account` will make the url:
     `https://i.instagram.com/api/v1/bloks/apps/com.instagram.interactions.about_this_account/`.
+    
 ### Web
 *Not precised yet.*
 

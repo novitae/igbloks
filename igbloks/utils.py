@@ -22,6 +22,12 @@ def branch_name(__d: dict, /) -> str | None:
     
 def is_branch(__d: dict, /) -> bool:
     return bool(branch_name(__d))
+
+def is_branch_list(__l: list, /) -> bool:
+    if isinstance(__l, list):
+        return all([is_branch(item) for item in __l])
+    else:
+        return False
     
 def annotation_types(a) -> tuple[type]:
     if isinstance(a, type):
