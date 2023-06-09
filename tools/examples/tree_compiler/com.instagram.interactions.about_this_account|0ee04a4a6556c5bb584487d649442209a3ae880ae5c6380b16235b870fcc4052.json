@@ -1,0 +1,596 @@
+{
+  "㐈": {
+    ")": "column",
+    " ": [
+      {
+        "㐈": {
+          ")": "column",
+          "$": "stretch",
+          " ": [
+            {
+              "㐅": {
+                "*": "column",
+                " ": [
+                  {
+                    "㐈": {
+                      ")": "column",
+                      ",": "space_evenly",
+                      "$": "center",
+                      " ": [
+                        {
+                          "㐈": {
+                            "&": {
+                              "㐂": {
+                                ".": "40.0dp",
+                                "(": "1dp",
+                                "+": true,
+                                "&": {
+                                  "㐵": {
+                                    "$": "#19000000",
+                                    "#": "#19FFFFFF"
+                                  }
+                                }
+                              }
+                            },
+                            " ": [
+                              {
+                                "㐋": {
+                                  ")": "https://scontent-cdg4-3.cdninstagram.com/v/...",
+                                  "(": "stretch",
+                                  "": []
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "D": "80dp",
+                                "*": "80dp"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "㐈": {
+                            "$": "center",
+                            " ": [
+                              {
+                                "㐗": {
+                                  ")": "...",
+                                  "-": "16sp",
+                                  ".": "bold",
+                                  "$": 1.25
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "=": "8dp"
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "": [
+                        {
+                          "㓾": {
+                            "#": "ata_header_section"
+                          }
+                        }
+                      ],
+                      "": {
+                        "㐸": {
+                          "*": "136dp",
+                          "=": "16dp",
+                          "7": "8dp"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "㐈": {
+                      ")": "column",
+                      "$": "stretch",
+                      " ": [
+                        {
+                          "㐈": {
+                            ")": "column",
+                            "$": "stretch",
+                            " ": [
+                              {
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "flex_start",
+                                  " ": [
+                                    {
+                                      "㐑": {
+                                        " ": [
+                                          {
+                                            "㐛": {
+                                              "&": "Pour préserver l’authenticité de notre communauté, nous affichons des informations sur les comptes sur Instagram.",
+                                              "*": "12sp",
+                                              ",": {
+                                                "㐵": {
+                                                  "$": "#8E8E8E",
+                                                  "#": "#8E8E8E"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "㐛": {
+                                              "&": " ",
+                                              "*": "12sp"
+                                            }
+                                          },
+                                          {
+                                            "㐛": {
+                                              "&": "Découvrez pourquoi ces informations sont importantes.",
+                                              "*": "12sp",
+                                              "$": " (ig.action.navigation.OpenUrl, \"https:\\/\\/help.instagram.com\\/697961817256175\")",
+                                              ",": {
+                                                "㐵": {
+                                                  "$": "#00376B",
+                                                  "#": "#E0F1FF"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "*": "center",
+                                        "&": 1.2,
+                                        "": {
+                                          "㐸": {
+                                            ")": 1
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "": {
+                                    "㐸": {
+                                      "D": "100%",
+                                      "7": "16dp"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "D": "100%",
+                                ";": "32dp",
+                                "8": "32dp"
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "": [
+                        {
+                          "㓾": {
+                            "#": "ata_context_section"
+                          }
+                        }
+                      ],
+                      "": {
+                        "㐸": {
+                          "D": "100%",
+                          "7": "8dp"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "㐈": {
+                      ")": "column",
+                      "$": "stretch",
+                      " ": [
+                        {
+                          "㐈": {
+                            ")": "column",
+                            ",": "flex_start",
+                            "$": "center",
+                            " ": [
+                              {
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "center",
+                                  " ": [
+                                    {
+                                      "㐈": {
+                                        ")": "row",
+                                        "$": "center",
+                                        " ": [
+                                          {
+                                            "㐈": {
+                                              ")": "column",
+                                              " ": [
+                                                {
+                                                  "㑄": {
+                                                    ")": "https://i.instagram.com/static/images/bloks/icons/generated/calendar-pano__outline__24-4x.png/1fddba7c7ee1.png",
+                                                    "$": "calendar-pano_outline_24",
+                                                    "#": "24dp",
+                                                    "*": "24dp",
+                                                    "(": {
+                                                      "㐵": {
+                                                        "$": "#000000",
+                                                        "#": "#fafafa"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ],
+                                              "": {
+                                                "㐸": {
+                                                  "8": "12dp"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "㐈": {
+                                              ")": "column",
+                                              " ": [
+                                                {
+                                                  "㐗": {
+                                                    ")": "Date d’adhésion",
+                                                    "-": "16sp",
+                                                    "0": {
+                                                      "㐵": {
+                                                        "$": "#000000",
+                                                        "#": "#fafafa"
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                {
+                                                  "㐑": {
+                                                    " ": [
+                                                      {
+                                                        "㐛": {
+                                                          "&": "...",
+                                                          "*": "14sp",
+                                                          ",": {
+                                                            "㐵": {
+                                                              "$": "#8E8E8E",
+                                                              "#": "#8E8E8E"
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    ],
+                                                    "*": "start"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "": {
+                                          "㐸": {
+                                            ")": 1
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "": {
+                                    "㐸": {
+                                      "D": "100%"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "": [
+                              {
+                                "㓾": {
+                                  "#": "ata_date_joined_row"
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "D": "100%",
+                                "=": "12dp",
+                                "7": "12dp",
+                                ";": "16dp",
+                                "8": "16dp"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "㐈": {
+                            ")": "column",
+                            ",": "flex_start",
+                            "$": "center",
+                            " ": [
+                              {
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "center",
+                                  " ": [
+                                    {
+                                      "㐈": {
+                                        ")": "row",
+                                        "$": "center",
+                                        " ": [
+                                          {
+                                            "㐈": {
+                                              ")": "column",
+                                              " ": [
+                                                {
+                                                  "㑄": {
+                                                    ")": "https://i.instagram.com/static/images/bloks/icons/generated/location-pano__outline__24-4x.png/c25a2527cdad.png",
+                                                    "$": "location-pano_outline_24",
+                                                    "#": "24dp",
+                                                    "*": "24dp",
+                                                    "(": {
+                                                      "㐵": {
+                                                        "$": "#000000",
+                                                        "#": "#fafafa"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ],
+                                              "": {
+                                                "㐸": {
+                                                  "8": "12dp"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "㐈": {
+                                              ")": "column",
+                                              " ": [
+                                                {
+                                                  "㐗": {
+                                                    ")": "Localisation du compte :",
+                                                    "-": "16sp",
+                                                    "0": {
+                                                      "㐵": {
+                                                        "$": "#000000",
+                                                        "#": "#fafafa"
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                {
+                                                  "㐑": {
+                                                    " ": [
+                                                      {
+                                                        "㐛": {
+                                                          "*": "14sp",
+                                                          ",": {
+                                                            "㐵": {
+                                                              "$": "#8E8E8E",
+                                                              "#": "#8E8E8E"
+                                                            }
+                                                          },
+                                                          "": " (bk.action.array.Make, (bk.action.array.Make, (bk.action.i32.Const, 489604386), \"&\", (bk.action.core.Apply, (bk.action.core.FuncConst, (bk.action.core.TakeLast, (bk.action.array.Update, (bk.action.core.GetArg, 0), (bk.action.array.Make, (bk.action.i32.Const, 0)), (bk.action.array.Make, (bk.action.bloks.GetVariable2, \"489604385_1\"))), (bk.action.core.Match, (bk.action.i32.Const, 1), (bk.action.array.Make, (bk.action.core.Pattern, (bk.action.bool.Not, (bk.action.array.Get, (bk.action.core.GetArg, 0), (bk.action.i32.Const, 0))), (bk.action.core.FuncConst, \"Non partag\\u00e9e\"))), (bk.action.core.Default, (bk.action.core.FuncConst, (bk.action.bloks.GetVariable2, \"489604385_0\")))))), (bk.action.array.Make, null))))",
+                                                          "!": 489604386
+                                                        }
+                                                      }
+                                                    ],
+                                                    "*": "start"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ],
+                                        "": {
+                                          "㐸": {
+                                            ")": 1
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "": {
+                                    "㐸": {
+                                      "D": "100%"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "": [
+                              {
+                                "㓾": {
+                                  "#": "ata_country_row"
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "D": "100%",
+                                "=": "12dp",
+                                "7": "12dp",
+                                ";": "16dp",
+                                "8": "16dp"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "㐈": {
+                            ")": "column",
+                            ",": "flex_start",
+                            "$": "center",
+                            "-": " (bk.action.core.TakeLast, (bk.action.i32.Const, 1), (bk.action.i32.Const, 1), (ig.action.navigation.OpenScreen, (bk.action.bloks.InflateSync, (bk.action.map.Make, (bk.action.array.Make, \"\\u3466\"), (bk.action.array.Make, (bk.action.map.Make, (bk.action.array.Make, \"$\", \")\", \"#\"), (bk.action.array.Make, \"com.instagram.interactions.former_usernames\", (bk.action.map.Make, (bk.action.array.Make, \"\\u3463\"), (bk.action.array.Make, (bk.action.map.Make, (bk.action.array.Make, \"0\"), (bk.action.array.Make, \"Anciens noms d\\u2019utilisateur\")))), \"adjust_resize\"))))), (bk.action.map.Make, (bk.action.array.Make, \"referrer\", \"user_id\"), (bk.action.array.Make, \"ProfileUsername\", \"...\"))))",
+                            " ": [
+                              {
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "center",
+                                  " ": [
+                                    {
+                                      "㐈": {
+                                        ")": "row",
+                                        "$": "center",
+                                        " ": [
+                                          {
+                                            "㐈": {
+                                              ")": "column",
+                                              " ": [
+                                                {
+                                                  "㑄": {
+                                                    ")": "https://i.instagram.com/static/images/bloks/icons/generated/user-pano__outline__24-4x.png/90a467cf8235.png",
+                                                    "$": "user-pano_outline_24",
+                                                    "#": "24dp",
+                                                    "*": "24dp",
+                                                    "(": {
+                                                      "㐵": {
+                                                        "$": "#000000",
+                                                        "#": "#fafafa"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ],
+                                              "": {
+                                                "㐸": {
+                                                  "8": "12dp"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "㐗": {
+                                              ")": "Anciens noms d’utilisateur",
+                                              "-": "16sp",
+                                              "0": {
+                                                "㐵": {
+                                                  "$": "#000000",
+                                                  "#": "#fafafa"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "": [
+                                          {
+                                            "㐁": {
+                                              "#": true,
+                                              "$": "Anciens noms d’utilisateur",
+                                              "&": "Button"
+                                            }
+                                          }
+                                        ],
+                                        "": {
+                                          "㐸": {
+                                            ")": 1
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "㐗": {
+                                        ")": "...",
+                                        "-": "14sp",
+                                        "0": {
+                                          "㐵": {
+                                            "$": "#8E8E8E",
+                                            "#": "#8E8E8E"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "㐈": {
+                                        ")": "column",
+                                        " ": [
+                                          {
+                                            "㑄": {
+                                              ")": "https://i.instagram.com/static/images/bloks/icons/generated/chevron-right-pano__outline__16-4x.png/74fbc63d2f75.png",
+                                              "$": "chevron-right-pano_outline_16",
+                                              "#": "16dp",
+                                              "*": "16dp",
+                                              "(": {
+                                                "㐵": {
+                                                  "$": "#8E8E8E",
+                                                  "#": "#8E8E8E"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "": {
+                                          "㐸": {
+                                            ";": "6.5dp"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "": {
+                                    "㐸": {
+                                      "D": "100%"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "": [
+                              {
+                                "㓾": {
+                                  "#": "ata_former_usernames_row"
+                                }
+                              }
+                            ],
+                            "": {
+                              "㐸": {
+                                "D": "100%",
+                                "=": "12dp",
+                                "7": "12dp",
+                                ";": "16dp",
+                                "8": "16dp"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "": [
+                  {
+                    "㓢": {
+                      "&": "489604383",
+                      "#": " (bk.action.core.TakeLast, (ig.action.logging.LogEvent, \"ig_about_this_account\", \"Landing\", (bk.action.map.Make, (bk.action.array.Make, \"event_name\", \"referer_type\", \"surface\", \"target_ig_user_id\"), (bk.action.array.Make, \"impression\", \"ProfileUsername\", \"Landing\", (bk.action.i64.Const, ...)))), (bk.action.navigation.SetNavBar, (bk.action.bloks.InflateSync, (bk.action.map.Make, (bk.action.array.Make, \"\\u3463\"), (bk.action.array.Make, (bk.action.map.Make, (bk.action.array.Make, \"0\"), (bk.action.array.Make, \"\\u00c0 propos de ce compte\")))))))"
+                    }
+                  }
+                ],
+                "": {
+                  "㐸": {
+                    ")": 1,
+                    "A": 1
+                  }
+                }
+              }
+            }
+          ],
+          "": {
+            "㐸": {
+              "D": "100%",
+              "*": "100%"
+            }
+          }
+        }
+      }
+    ],
+    "": {
+      "㐸": {
+        ")": 1
+      }
+    }
+  }
+}

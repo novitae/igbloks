@@ -2,7 +2,7 @@ from types import UnionType
 from typing import Callable, Any
 
 __all__ = ( "is_bkid", "branch_name", "is_branch", "annotation_types",
-            "Undefined", "check_return_type", )
+            "Undefined", "check_return_type", "is_branch_list", )
 
 def is_bkid(__s: str, /) -> bool:
     return True

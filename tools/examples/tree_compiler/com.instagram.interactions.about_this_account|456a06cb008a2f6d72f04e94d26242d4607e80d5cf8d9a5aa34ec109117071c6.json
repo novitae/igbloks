@@ -1,0 +1,596 @@
+{
+          "bk.components.Flexbox": {
+            "flex_direction": "column",
+            "children": [
+              {
+                "bk.components.Flexbox": {
+                  "flex_direction": "column",
+                  "align_items": "stretch",
+                  "children": [
+                    {
+                      "bk.components.Collection": {
+                        "direction": "column",
+                        "children": [
+                          {
+                            "bk.components.Flexbox": {
+                              "flex_direction": "column",
+                              "justify_content": "space_evenly",
+                              "align_items": "center",
+                              "children": [
+                                {
+                                  "bk.components.Flexbox": {
+                                    "decoration": {
+                                      "bk.components.BoxDecoration": {
+                                        "corner_radius": "40.0dp",
+                                        "border_width": "1dp",
+                                        "clipping": true,
+                                        "border_themed_color": {
+                                          "bk.types.ThemedColor": {
+                                            "light_color": "#19000000",
+                                            "dark_color": "#19FFFFFF"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "children": [
+                                      {
+                                        "bk.components.Image": {
+                                          "url": "https://scontent-cdg4-3.cdninstagram.com/v/...",
+                                          "scale_type": "stretch",
+                                          "extensions": []
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "width": "80dp",
+                                        "height": "80dp"
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "bk.components.Flexbox": {
+                                    "align_items": "center",
+                                    "children": [
+                                      {
+                                        "bk.components.Text": {
+                                          "text": "...",
+                                          "text_size": "16sp",
+                                          "text_style": "bold",
+                                          "line_height_multiplier": 1.25
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "padding_top": "8dp"
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "extensions": [
+                                {
+                                  "bk.components.AutomationTestExtension": {
+                                    "testing_id": "ata_header_section"
+                                  }
+                                }
+                              ],
+                              "_style": {
+                                "flex": {
+                                  "height": "136dp",
+                                  "padding_top": "16dp",
+                                  "padding_bottom": "8dp"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "bk.components.Flexbox": {
+                              "flex_direction": "column",
+                              "align_items": "stretch",
+                              "children": [
+                                {
+                                  "bk.components.Flexbox": {
+                                    "flex_direction": "column",
+                                    "align_items": "stretch",
+                                    "children": [
+                                      {
+                                        "bk.components.Flexbox": {
+                                          "flex_direction": "row",
+                                          "justify_content": "flex_start",
+                                          "align_items": "flex_start",
+                                          "children": [
+                                            {
+                                              "bk.components.RichText": {
+                                                "children": [
+                                                  {
+                                                    "bk.components.TextSpan": {
+                                                      "text": "Pour préserver l’authenticité de notre communauté, nous affichons des informations sur les comptes sur Instagram.",
+                                                      "text_size": "12sp",
+                                                      "text_themed_color": {
+                                                        "bk.types.ThemedColor": {
+                                                          "light_color": "#8E8E8E",
+                                                          "dark_color": "#8E8E8E"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "bk.components.TextSpan": {
+                                                      "text": " ",
+                                                      "text_size": "12sp"
+                                                    }
+                                                  },
+                                                  {
+                                                    "bk.components.TextSpan": {
+                                                      "text": "Découvrez pourquoi ces informations sont importantes.",
+                                                      "text_size": "12sp",
+                                                      "on_click": "(bk.action.navigation.OpenUrlV2, \"https:\\/\\/help.instagram.com\\/697961817256175\", (bk.action.bloks.InflateSync, (bk.action.map.MakeFlat, \"bk.data.navigation.OpenUrlOptions\", (bk.action.map.MakeFlat))))",
+                                                      "text_themed_color": {
+                                                        "bk.types.ThemedColor": {
+                                                          "light_color": "#00376B",
+                                                          "dark_color": "#E0F1FF"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "text_align": "center",
+                                                "line_height_multiplier": 1.2,
+                                                "_style": {
+                                                  "flex": {
+                                                    "grow": 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "_style": {
+                                            "flex": {
+                                              "width": "100%",
+                                              "padding_bottom": "16dp"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "width": "100%",
+                                        "padding_start": "32dp",
+                                        "padding_end": "32dp"
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "extensions": [
+                                {
+                                  "bk.components.AutomationTestExtension": {
+                                    "testing_id": "ata_context_section"
+                                  }
+                                }
+                              ],
+                              "_style": {
+                                "flex": {
+                                  "width": "100%",
+                                  "padding_bottom": "8dp"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "bk.components.Flexbox": {
+                              "flex_direction": "column",
+                              "align_items": "stretch",
+                              "children": [
+                                {
+                                  "bk.components.Flexbox": {
+                                    "flex_direction": "column",
+                                    "justify_content": "flex_start",
+                                    "align_items": "center",
+                                    "children": [
+                                      {
+                                        "bk.components.Flexbox": {
+                                          "flex_direction": "row",
+                                          "justify_content": "flex_start",
+                                          "align_items": "center",
+                                          "children": [
+                                            {
+                                              "bk.components.Flexbox": {
+                                                "flex_direction": "row",
+                                                "align_items": "center",
+                                                "children": [
+                                                  {
+                                                    "bk.components.Flexbox": {
+                                                      "flex_direction": "column",
+                                                      "children": [
+                                                        {
+                                                          "ig.components.Icon": {
+                                                            "url": "https://i.instagram.com/static/images/bloks/icons/generated/calendar-pano__outline__24-4x.png/1fddba7c7ee1.png",
+                                                            "resource_name": "calendar-pano_outline_24",
+                                                            "height": "24dp",
+                                                            "width": "24dp",
+                                                            "tint_themed_color": {
+                                                              "bk.types.ThemedColor": {
+                                                                "light_color": "#000000",
+                                                                "dark_color": "#fafafa"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ],
+                                                      "_style": {
+                                                        "flex": {
+                                                          "padding_end": "12dp"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "bk.components.Flexbox": {
+                                                      "flex_direction": "column",
+                                                      "children": [
+                                                        {
+                                                          "bk.components.Text": {
+                                                            "text": "Date d’adhésion",
+                                                            "text_size": "16sp",
+                                                            "text_themed_color": {
+                                                              "bk.types.ThemedColor": {
+                                                                "light_color": "#000000",
+                                                                "dark_color": "#fafafa"
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "bk.components.RichText": {
+                                                            "children": [
+                                                              {
+                                                                "bk.components.TextSpan": {
+                                                                  "text": "...",
+                                                                  "text_size": "14sp",
+                                                                  "text_themed_color": {
+                                                                    "bk.types.ThemedColor": {
+                                                                      "light_color": "#8E8E8E",
+                                                                      "dark_color": "#8E8E8E"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            ],
+                                                            "text_align": "start"
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ],
+                                                "_style": {
+                                                  "flex": {
+                                                    "grow": 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "_style": {
+                                            "flex": {
+                                              "width": "100%"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "extensions": [
+                                      {
+                                        "bk.components.AutomationTestExtension": {
+                                          "testing_id": "ata_date_joined_row"
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "width": "100%",
+                                        "padding_top": "12dp",
+                                        "padding_bottom": "12dp",
+                                        "padding_start": "16dp",
+                                        "padding_end": "16dp"
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "bk.components.Flexbox": {
+                                    "flex_direction": "column",
+                                    "justify_content": "flex_start",
+                                    "align_items": "center",
+                                    "children": [
+                                      {
+                                        "bk.components.Flexbox": {
+                                          "flex_direction": "row",
+                                          "justify_content": "flex_start",
+                                          "align_items": "center",
+                                          "children": [
+                                            {
+                                              "bk.components.Flexbox": {
+                                                "flex_direction": "row",
+                                                "align_items": "center",
+                                                "children": [
+                                                  {
+                                                    "bk.components.Flexbox": {
+                                                      "flex_direction": "column",
+                                                      "children": [
+                                                        {
+                                                          "ig.components.Icon": {
+                                                            "url": "https://i.instagram.com/static/images/bloks/icons/generated/location-pano__outline__24-4x.png/c25a2527cdad.png",
+                                                            "resource_name": "location-pano_outline_24",
+                                                            "height": "24dp",
+                                                            "width": "24dp",
+                                                            "tint_themed_color": {
+                                                              "bk.types.ThemedColor": {
+                                                                "light_color": "#000000",
+                                                                "dark_color": "#fafafa"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ],
+                                                      "_style": {
+                                                        "flex": {
+                                                          "padding_end": "12dp"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "bk.components.Flexbox": {
+                                                      "flex_direction": "column",
+                                                      "children": [
+                                                        {
+                                                          "bk.components.Text": {
+                                                            "text": "Localisation du compte :",
+                                                            "text_size": "16sp",
+                                                            "text_themed_color": {
+                                                              "bk.types.ThemedColor": {
+                                                                "light_color": "#000000",
+                                                                "dark_color": "#fafafa"
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        {
+                                                          "bk.components.RichText": {
+                                                            "children": [
+                                                              {
+                                                                "bk.components.TextSpan": {
+                                                                  "text_size": "14sp",
+                                                                  "text_themed_color": {
+                                                                    "bk.types.ThemedColor": {
+                                                                      "light_color": "#8E8E8E",
+                                                                      "dark_color": "#8E8E8E"
+                                                                    }
+                                                                  },
+                                                                  "on_bind": "(bk.action.array.Make, (bk.action.array.Make, (bk.action.i32.Const, 757764386), \"text\", (bk.action.core.Apply, (bk.action.core.FuncConst, (bk.action.core.TakeLast, (bk.action.array.Update, (bk.action.core.GetArg, 0), (bk.action.array.Make, (bk.action.i32.Const, 0)), (bk.action.array.Make, (bk.action.bloks.GetVariable2, \"757764385_1\"))), (bk.action.core.Match, (bk.action.i32.Const, 1), (bk.action.array.Make, (bk.action.core.Pattern, (bk.action.bool.Not, (bk.action.array.Get, (bk.action.core.GetArg, 0), (bk.action.i32.Const, 0))), (bk.action.core.FuncConst, \"Non partag\\u00e9e\"))), (bk.action.core.Default, (bk.action.core.FuncConst, (bk.action.bloks.GetVariable2, \"757764385_0\")))))), (bk.action.array.Make, null))))",
+                                                                  "id": 757764386
+                                                                }
+                                                              }
+                                                            ],
+                                                            "text_align": "start"
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  }
+                                                ],
+                                                "_style": {
+                                                  "flex": {
+                                                    "grow": 1
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "_style": {
+                                            "flex": {
+                                              "width": "100%"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "extensions": [
+                                      {
+                                        "bk.components.AutomationTestExtension": {
+                                          "testing_id": "ata_country_row"
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "width": "100%",
+                                        "padding_top": "12dp",
+                                        "padding_bottom": "12dp",
+                                        "padding_start": "16dp",
+                                        "padding_end": "16dp"
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "bk.components.Flexbox": {
+                                    "flex_direction": "column",
+                                    "justify_content": "flex_start",
+                                    "align_items": "center",
+                                    "on_click": "(bk.action.core.TakeLast, (bk.action.i32.Const, 1), (bk.action.i32.Const, 1), (ig.action.navigation.OpenScreen, (bk.action.bloks.InflateSync, (bk.action.map.MakeFlat, \"ig.components.screens.Screen\", (bk.action.map.MakeFlat, \"app_id\", \"com.instagram.interactions.former_usernames\", \"navbar\", (bk.action.map.MakeFlat, \"ig.components.screens.Navbar\", (bk.action.map.MakeFlat, \"title\", \"Anciens noms d\\u2019utilisateur\"))))), (bk.action.map.Make, (bk.action.array.Make, \"referrer\", \"user_id\"), (bk.action.array.Make, \"ProfileUsername\", \"...\"))))",
+                                    "children": [
+                                      {
+                                        "bk.components.Flexbox": {
+                                          "flex_direction": "row",
+                                          "justify_content": "flex_start",
+                                          "align_items": "center",
+                                          "children": [
+                                            {
+                                              "bk.components.Flexbox": {
+                                                "flex_direction": "row",
+                                                "align_items": "center",
+                                                "children": [
+                                                  {
+                                                    "bk.components.Flexbox": {
+                                                      "flex_direction": "column",
+                                                      "children": [
+                                                        {
+                                                          "ig.components.Icon": {
+                                                            "url": "https://i.instagram.com/static/images/bloks/icons/generated/user-pano__outline__24-4x.png/90a467cf8235.png",
+                                                            "resource_name": "user-pano_outline_24",
+                                                            "height": "24dp",
+                                                            "width": "24dp",
+                                                            "tint_themed_color": {
+                                                              "bk.types.ThemedColor": {
+                                                                "light_color": "#000000",
+                                                                "dark_color": "#fafafa"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      ],
+                                                      "_style": {
+                                                        "flex": {
+                                                          "padding_end": "12dp"
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  {
+                                                    "bk.components.Text": {
+                                                      "text": "Anciens noms d’utilisateur",
+                                                      "text_size": "16sp",
+                                                      "text_themed_color": {
+                                                        "bk.types.ThemedColor": {
+                                                          "light_color": "#000000",
+                                                          "dark_color": "#fafafa"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "extensions": [
+                                                  {
+                                                    "bk.components.AccessibilityExtension": {
+                                                      "enabled": true,
+                                                      "label": "Anciens noms d’utilisateur",
+                                                      "role": "Button"
+                                                    }
+                                                  }
+                                                ],
+                                                "_style": {
+                                                  "flex": {
+                                                    "grow": 1
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "bk.components.Text": {
+                                                "text": "...",
+                                                "text_size": "14sp",
+                                                "text_themed_color": {
+                                                  "bk.types.ThemedColor": {
+                                                    "light_color": "#8E8E8E",
+                                                    "dark_color": "#8E8E8E"
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "bk.components.Flexbox": {
+                                                "flex_direction": "column",
+                                                "children": [
+                                                  {
+                                                    "ig.components.Icon": {
+                                                      "url": "https://i.instagram.com/static/images/bloks/icons/generated/chevron-right-pano__outline__16-4x.png/74fbc63d2f75.png",
+                                                      "resource_name": "chevron-right-pano_outline_16",
+                                                      "height": "16dp",
+                                                      "width": "16dp",
+                                                      "tint_themed_color": {
+                                                        "bk.types.ThemedColor": {
+                                                          "light_color": "#8E8E8E",
+                                                          "dark_color": "#8E8E8E"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "_style": {
+                                                  "flex": {
+                                                    "padding_start": "6.5dp"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "_style": {
+                                            "flex": {
+                                              "width": "100%"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "extensions": [
+                                      {
+                                        "bk.components.AutomationTestExtension": {
+                                          "testing_id": "ata_former_usernames_row"
+                                        }
+                                      }
+                                    ],
+                                    "_style": {
+                                      "flex": {
+                                        "width": "100%",
+                                        "padding_top": "12dp",
+                                        "padding_bottom": "12dp",
+                                        "padding_start": "16dp",
+                                        "padding_end": "16dp"
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "extensions": [
+                          {
+                            "bk.components.VisibilityExtension": {
+                              "key": "757764383",
+                              "on_appear": "(bk.action.core.TakeLast, (ig.action.logging.LogEvent, \"ig_about_this_account\", \"Landing\", (bk.action.map.Make, (bk.action.array.Make, \"event_name\", \"referer_type\", \"surface\", \"target_ig_user_id\"), (bk.action.array.Make, \"impression\", \"ProfileUsername\", \"Landing\", (bk.action.i64.Const, ...)))), (bk.action.navigation.SetNavBar, (bk.action.bloks.InflateSync, (bk.action.map.MakeFlat, \"ig.components.screens.Navbar\", (bk.action.map.MakeFlat, \"title\", \"\\u00c0 propos de ce compte\")))))"
+                            }
+                          }
+                        ],
+                        "_style": {
+                          "flex": {
+                            "grow": 1,
+                            "shrink": 1
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "_style": {
+                    "flex": {
+                      "width": "100%",
+                      "height": "100%"
+                    }
+                  }
+                }
+              }
+            ],
+            "_style": {
+              "flex": {
+                "grow": 1
+              }
+            }
+          }
+        }
