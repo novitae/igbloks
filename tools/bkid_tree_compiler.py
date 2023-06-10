@@ -33,11 +33,12 @@ class BlokField(AliasesModel):
 
     def append_value(self, bkid: str, value: Any, bc: "BlokClasses", index_path: list[int]):
         if isinstance(value, list):
-            self.values += [f"-class->" + branch_name(item) for item in value]
+            self.values += [f"-class->" + get_branch_name(item) for item in value]
             self.is_list = True
             recurse((bkid, value), index_path=index_path, bc=bc)
         elif isinstance(value, dict):
-            self.values.append(f"-class->" + branch_name(value))
+            self.values.append(f"-class->" + get_branch_name(value))
+            recurse((bkid, value), index_path=index_path, bc=bc)
         else:
             self.values.append(value)
 
@@ -93,7 +94,7 @@ def recurse(
     if all([is_branch(data[1]) for data in datas]):
         # print("All branches")
         for bkid, raw_blok in datas:
-            bn = branch_name(raw_blok)
+            bn = get_branch_name(raw_blok)
             saved_bn = bc.class_name(bkid, bn, index_path)
             for field_index, (field_key, field_value) in enumerate(raw_blok[bn].items()):
                 fn = bc.classes[saved_bn].field_name(bkid, field_key, index_path + [field_index])

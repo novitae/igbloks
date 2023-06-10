@@ -1,8 +1,10 @@
 from types import UnionType
 from typing import Callable, Any
+from enum import Enum
 
-__all__ = ( "is_bkid", "branch_name", "is_branch", "annotation_types",
-            "Undefined", "check_return_type", "is_branch_list", )
+__all__ = ( "is_bkid", "get_branch_name", "is_branch", "annotation_types",
+            "Undefined", "check_return_type", "is_branch_list", "rgb_to_hex",
+            "hex_to_rgb", "enum_list", )
 
 def is_bkid(__s: str, /) -> bool:
     return True
@@ -11,7 +13,7 @@ def is_bkid(__s: str, /) -> bool:
     except:
         return False
     
-def branch_name(__d: dict, /) -> str | None:
+def get_branch_name(__d: dict, /) -> str | None:
     if isinstance(__d, dict):
         for key, value in __d.items():
             if isinstance(key, str) and isinstance(value, dict):
@@ -21,7 +23,7 @@ def branch_name(__d: dict, /) -> str | None:
         return key   
     
 def is_branch(__d: dict, /) -> bool:
-    return bool(branch_name(__d))
+    return bool(get_branch_name(__d))
 
 def is_branch_list(__l: list, /) -> bool:
     if isinstance(__l, list):
@@ -61,3 +63,14 @@ def check_return_type(func: Callable) -> Callable:
                                      f'"{self.accepted_types}"' )
         return result
     return wrapper
+
+def rgb_to_hex(color: list[int]) -> str:
+    return ("#" + "{:02x}" * len(color)).format(*color)
+
+def hex_to_rgb(hex_color: str) -> tuple[int]:
+    hex_color = hex_color.lstrip('#')
+    length = len(hex_color)
+    return tuple(int(hex_color[i:i+length//3], 16) for i in range(0, length, length//3))
+
+def enum_list(e: Enum) -> list[Any]:
+    return [item.value for item in e]

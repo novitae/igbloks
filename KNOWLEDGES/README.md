@@ -74,7 +74,7 @@ They have a specific syntax, looking quiet like json array, but instead of `[]`,
 ```
 (bk.action.map.Make, (bk.action.array.Make, \"serialized_logging_context\", \"INTERNAL_INFRA_screen_id\", \"INTERNAL_INFRA_THEME\"), (bk.action.array.Make, \"{\\\"entrypoint\\\":\\\"settings_menu\\\"}\", \"?\", \"harm_f\"))
 ```
-We can decode it using `igbloks.scripts.parser.raw_to_list(...)`, and its return value to json looks like this:
+We can decode it using `igbloks.scripts.parser.deserialize(...)`, and its return value to json looks like this:
 ```json
 [
     "bk.action.map.Make",
