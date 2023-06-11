@@ -4,6 +4,7 @@ from types import GenericAlias, UnionType
 
 from ..utils import *
 from ..errors import *
+from .types import BlokFieldType
 
 __all__ = ( "MultipleAliasField", "BlokField", "Branch", "MultipleBranches",
             )
@@ -89,20 +90,31 @@ class BlokField(MultipleAliasField):
         """
         super().__init__(aliases=aliases)
 
-        if default == Undefined and default_factory is None:
-            if required is True:
-                raise # Pas de valeur par défaut ou qui sera générée
-        elif default_factory is not None and default != Undefined:
-            raise # On ne sait pas le quel choisir
-        elif default_factory is not None:
-            if callable(default_factory) is False:
-                raise # Pas callable
-        else:
-            def _default_fact_from_default() -> Any:
-                return default
-            default_factory = _default_fact_from_default
-
         self.required = required
+        if default == Undefined and default_factory is None:
+            pass
+        elif default_factory is not None:
+            if default != Undefined:
+                raise ValueError( '`default` and `default_factory` arguments '
+                                    'have been filled, so i don\'t know which to'
+                                    ' use. Please fill only the one you want.' )
+            elif callable(default_factory) is False:
+                raise TypeError( '`default_factory` is not a callable' )
+        else:
+            default_factory = lambda: default
+        self.default_factory = default_factory
+
+        # Que fait-on:
+        #   Required:
+        #       Default:
+        #           set defaut
+        #       else:
+        #           raise si pas présent
+        #   Not required
+        #       - fout sur undefined par défaut
+        #       - not export if still undefined
+
+
         self.default_factory = default_factory
 
         self.is_list = False if is_list is None else is_list
@@ -118,23 +130,40 @@ class BlokField(MultipleAliasField):
                  f"pretty_name: \"{self.pretty_name}\")" )
     
     @check_return_type
-    def __to_py_obj__(self, content: Any, bkid: str, *, verified: bool = False) -> Self:
-        value = self._import_transformer(content)
-        if (name := get_branch_name(content)) is not None:
+    def __to_py_obj__(self, content: Any, bkid: str, *args, **kwargs) -> Self:
+        if is_branch_list(content):
+            return [ self.__to_py_obj__( content=item,
+                                         bkid=bkid,
+                                         *args,
+                                         verified=True,
+                                         **kwargs ) for item in content ]
+        if (branch_name := get_branch_name(content)) is not None:
             sub_branches = { item.aliases[bkid]: item for item in self.accepted_types
-                             if item is self.__class__ }
-            if (matching_btype := sub_branches.get(name)) is not None:
-                return matching_btype.__to_py_obj__( content=value,
+                             if issubclass(item, Branch) }
+            if (matching_btype := sub_branches.get(branch_name)) is not None:
+                return matching_btype.__to_py_obj__( content=content,
                                                      bkid=bkid,
                                                      verified=True )
-        return value
+        else:
+            for blok_field_type in [ item for item in self.accepted_types
+                                     if isinstance(item, BlokFieldType) ]:
+                if blok_field_type.test_for(content) is True:
+                    return blok_field_type.__to_py_obj__( content=content,
+                                         bkid=bkid,
+                                         *args,
+                                         verified=True,
+                                         **kwargs )
+        if type(content) in self.accepted_types or content is Undefined:
+            return content
+        else:
+            raise TypeError( 'no correct type adapter found' )
 
     @property
-    def accepted_types(self) -> list[type] | None:
+    def accepted_types(self) -> list[Self | type] | None:
         return self._accepted_types
     
     @accepted_types.setter
-    def accepted_types(self, accepted_types: list[type] | None) -> None:
+    def accepted_types(self, accepted_types: list[Self | type] | None) -> None:
         if accepted_types is not None:
             # Change list[str | tuple, int] to (str | tuple, <class 'int'>),
             # and overwrites the `is_list` attr.
@@ -153,6 +182,9 @@ class BlokField(MultipleAliasField):
                 accepted_types = (accepted_types, )
             
             accepted_types = list(accepted_types)
+            if Any in accepted_types:
+                self.skip_type_verif = True
+
             if all([ item == Self or isinstance(item, type)
                      for item in accepted_types ]) is False:
                 raise TypeError(f'a value of `accepted_types` is not a `type`: {accepted_types}')
@@ -175,7 +207,8 @@ class Branch(MultipleAliasField):
         verified: bool = False,
         **kwargs
     ) -> None:
-        if verified is False and is_branch(content) is False:
+        branch_name = get_branch_name(content)
+        if verified is False and branch_name is None:
             raise InvalidRawBranchError( "invalid branch sent to class "
                                          f"`{self.__class__.__name__}`" )
 
@@ -208,25 +241,42 @@ class Branch(MultipleAliasField):
 
             # Finding appropriate values in the input content,
             # loading them and setting them as attributes
-            field_value = content.get(field_infos.aliases[bkid], Undefined)
+            field_value = content[branch_name].get(field_infos.aliases[bkid], Undefined)
             if field_value is Undefined:
-                field_value = field_infos.default_factory()
-            else:
-                field_value = field_value[field_name]
+                # print(field_infos.aliases[bkid], list(content[branch_name].keys()), list(content.keys()))
+                if field_infos.required:
+                    try:
+                        field_value = field_infos.default_factory()
+                    except TypeError as error:
+                        raise MissingDefaultBuilderError(
+                            f'field `{field_infos.pretty_name}` from branch `'
+                            f'{self.__class__.__name__}` was not set correctly,'
+                             ' but was required. Not finding a value for this '
+                             'field resulted a miss of a value to place as an '
+                             'attribute for the field.' ) from error
 
+            field_value = field_infos.__to_py_obj__( content=field_value,
+                                                     bkid=bkid,
+                                                     *args,
+                                                     **kwargs )
             self.__setattr__(field_name, field_value)
             
     def __setattr__(self, __name: str, __value: Any) -> None:
-        if hasattr(self, 'fields') and __name in self.fields:
-            field = self.fields[__name]
-            if field.skip_type_verif is False:
-                if isinstance(__value, field.accepted_types) is False:
-                    raise TypeError( f'`field_value` for field "{__name}" has'
-                                     f' recieved the value "{__value}" of type'
-                                     f' "{type(__value).__name__}", while the '
-                                     f'allowed fields are {field.accepted_types}' )
+        # if hasattr(self, 'fields') and __name in self.fields:
+        #     field = self.fields[__name]
+        #     if field.skip_type_verif is False:
+        #         if isinstance(__value, field.accepted_types) is False:
+        #             raise TypeError( f'`field_value` for field "{__name}" has'
+        #                              f' recieved the value "{__value}" of type'
+        #                              f' "{type(__value).__name__}", while the '
+        #                              f'allowed fields are {field.accepted_types}' )
         return super().__setattr__(__name, __value)
-  
+    
+    def __repr__(self) -> str:
+        content = {key: self.__getattribute__(key) for key in self.fields.keys()}
+        content = ", ".join(f"{key}: {repr(value)}" for key, value in content.items() if value != Undefined)
+        return f"{self.__class__.__name__}({content})"
+    
     @classmethod
     def __to_py_obj__(
         cls,

@@ -1,6 +1,11 @@
 from types import UnionType
-from typing import Callable, Any
+from typing import Callable, Any, TYPE_CHECKING
 from enum import Enum
+
+if TYPE_CHECKING:
+    from .bloks.branches import BlokField
+else:
+    class BlokField: pass
 
 __all__ = ( "is_bkid", "get_branch_name", "is_branch", "annotation_types",
             "Undefined", "check_return_type", "is_branch_list", "rgb_to_hex",
@@ -52,15 +57,19 @@ class _Undefined:
 Undefined = _Undefined()
 
 
-def check_return_type(func: Callable) -> Callable:
-    def wrapper(self: object, *args: Any, **kwargs: Any):
+def check_return_type(func) -> Callable:
+    def wrapper(self: BlokField, *args: Any, **kwargs: Any):
         result = func(self, *args, **kwargs)
         if hasattr(self, 'skip_type_verif') and hasattr(self, 'accepted_types'):
             if self.skip_type_verif is False:
-                if not isinstance(result, self.accepted_types):
+                check_type = lambda item: isinstance(item, self.accepted_types) or item is Undefined
+                if isinstance(result, list) and self.is_list:
+                    if not all([check_type(item) for item in result]):
+                        raise TypeError( '' )
+                elif not check_type(result):
                     raise TypeError( f'the result of "{func.__name__}" is of type '
-                                     f'"{type(result)}", but should instance of '
-                                     f'"{self.accepted_types}"' )
+                                    f'"{type(result)}", but should instance of '
+                                    f'"{self.accepted_types}"' )
         return result
     return wrapper
 
