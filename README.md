@@ -43,6 +43,7 @@ Which actually looks like this converted to HTML:
 >>> dj.parent.find_all("bk.components.text")[-1]["text"]
 'May 2012'
 ```
+In the case the bloks syntax isn't exportable to HTML and then readable correctly (with some spaces or chinese characters as keys), you can set `as_hex` on `True` when using `bloks_to_html` to replace the key by the value `f"x{key.encode().hex().upper()}"`.
 ### Mapping 🗺️
 Due to the way instagram bloks are working, with **keys changing based on the bkid**, the mapping tool is here to **identify objects with the different keys the might be identified by**. It works using a set of responses to same requests, but with different bkids. It produces a file that the library will take as a reference to know which object has which values, their types, their required values, their names, keys, etc ... .
 
