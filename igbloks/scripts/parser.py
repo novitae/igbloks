@@ -46,15 +46,98 @@ def serialize(__l: list[str | int | bool | None | list]) -> str:
 
     return serialize_item(__l, 0)
 
-def find_operands(data, *operands: str, found=None) -> list[list[str, Any]]:
+def find_operands(script: list, *operands: str, found=None) -> list[list[str, Any]]:
+    """Search for specific given operands.
+
+    Args:
+        script (list): The deserialized script to search in.
+        *operands (str): The tuple of operands to search for. Defaults to None.
+
+    Returns:
+        list[list[str, Any]]: The list of matches, containing the full command \
+            of with the operand in it.
+    """
     if found is None:
         found = []
 
-    if isinstance(data, list) and len(data) >= 2:
-        if data[0] in operands:
-            found.append(data)
+    if isinstance(script, list) and len(script) >= 2:
+        if script[0] in operands:
+            found.append(script)
         else:
-            for item in data:
+            for item in script:
                 find_operands(item, *operands, found=found)
     
     return found
+
+def find_value(script: list, value: Any, returned_level: int = 1) -> list:
+    """Searches for a given value inside a deserialized script.
+
+    Args:
+        script (list): The deserialized script.
+        value (Any): The value to search for.
+        returned_level (int, optional): The level relative to the value from \
+            which we should return the value. Defaults to 1. Example:
+            - "hi", 1:
+            ```
+            [
+                3,
+                "hi"
+            ]
+            ```
+            - "hi", 2:
+            ```
+            [
+                [
+                    "uh"
+                ],
+                [
+                    3,
+                    "hi"
+                ]
+            ]
+            ```
+            - "hi", 3:
+            ```
+            [
+                [
+                    [
+                        "uh"
+                    ],
+                    [
+                        3,
+                        "hi"
+                    ]
+                ],
+                89,
+                [
+                    "bonjour"
+                ]
+            ]
+            ```
+    Returns:
+        list: The value at its relative level.
+    """
+    # Fonction interne récursive avec chemin de suivi
+    def recursive_search(lst, value, path):
+        if value in lst:
+            # Retourne le chemin mis à jour avec la position actuelle
+            return path + [lst]
+        for item in lst:
+            if isinstance(item, list):
+                result = recursive_search(item, value, path + [lst])
+                if result is not None:
+                    return result
+        return None
+
+    path_to_element = recursive_search(script, value, [])
+    
+    if path_to_element is None:
+        return None  # L'élément n'a pas été trouvé
+    
+    # Remonte les niveaux en fonction de levels_to_go_up
+    if returned_level >= len(path_to_element):
+        # Si les niveaux à remonter dépassent la longueur du chemin, retourne la racine
+        return path_to_element[0]
+    else:
+        # Sinon, retourne l'élément au niveau spécifié en remontant
+        return path_to_element[-(returned_level + 1)]
