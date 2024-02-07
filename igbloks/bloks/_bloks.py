@@ -1,5 +1,5 @@
 from typing import Any, Self, ForwardRef, get_type_hints
-from .branches import BlokField, Branch
+from ._branches import BlokField, Branch
 from ..utils import get_branch_name
 from ..errors import InvalidRawBranchError, NonMatchingBKIDError
 
@@ -182,4 +182,4 @@ def __to_py_obj__(
         else:
             raise NonMatchingBKIDError()
     else:
-        raise InvalidRawBranchError()
+        raise InvalidRawBranchError('unable to fetch branch name')

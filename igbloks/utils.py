@@ -3,7 +3,7 @@ from typing import Callable, Any, TYPE_CHECKING
 from enum import Enum
 
 if TYPE_CHECKING:
-    from .bloks.branches import BlokField
+    from .bloks._branches import BlokField
 else:
     class BlokField: pass
 
@@ -18,21 +18,44 @@ def is_bkid(__s: str, /) -> bool:
     except:
         return False
     
-def get_branch_name(__d: dict, /) -> str | None:
-    if isinstance(__d, dict):
-        for key, value in __d.items():
-            if isinstance(key, str) and isinstance(value, dict):
-                break
-        else:
-            return
-        return key   
-    
 def is_branch(__d: dict, /) -> bool:
-    return bool(get_branch_name(__d))
+    """Tells if a dict is a raw branch.
 
-def is_branch_list(__l: list, /) -> bool:
-    if isinstance(__l, list):
-        return all([is_branch(item) for item in __l])
+    Args:
+        __d (dict): The dictionnary to check.
+
+    Returns:
+        bool: True if is a branch, else False.
+    """
+    return (isinstance(__d, dict) and len(__d) == 1) or (isinstance(__d, tuple) and len(__d) == 2 and isinstance(__d[1], dict))
+    
+def get_branch_name(__d: dict, /, *, verified_branch: bool = False) -> str | None:
+    """Returns the branch name of the given raw branch dict.
+
+    Args:
+        __d (dict): The raw branch dict to return the name from.
+        verified_branch (bool, optional): True if the branch was \
+            verified, will avoid checking again. Defaults to False.
+
+    Returns:
+        str | None: The branch name, or None if it is not a branch.
+    """
+    if verified_branch is False and is_branch(__d) is False:
+        return
+    else:
+        return next(iter(__d.keys()))
+    
+def is_branch_list(__l: list | tuple | set, /) -> bool:
+    """Tells if a list is containing only raw branches.
+
+    Args:
+        __l (list | tuple | set): The list to check.
+
+    Returns:
+        bool: True if the list is full or raw branches, else False.
+    """
+    if isinstance(__l, (list, tuple, set)):
+        return all(is_branch(item) for item in __l)
     else:
         return False
     

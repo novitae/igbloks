@@ -1,6 +1,8 @@
 .DS_Store
 tests/*
 _*
+!_*.py
+mapping_dir/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
