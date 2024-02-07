@@ -35,7 +35,8 @@ def arraymake(*args, **kwargs):
 def boolconst(*args, **kwargs):
     return bool(args[0])
 
-@operand('bk.action.i32.Const')
+@operand( 'bk.action.i32.Const',
+          'bk.action.i64.Const', )
 def i32const(*args, **kwargs):
     return int(args[0])
 
