@@ -46,7 +46,7 @@ def serialize(__l: list[str | int | bool | None | list]) -> str:
 
     return serialize_item(__l, 0)
 
-def find_json_encode_elements(data, *operands: str, found=None) -> list[list[str, Any]]:
+def find_operands(data, *operands: str, found=None) -> list[list[str, Any]]:
     if found is None:
         found = []
 
@@ -55,6 +55,6 @@ def find_json_encode_elements(data, *operands: str, found=None) -> list[list[str
             found.append(data)
         else:
             for item in data:
-                find_json_encode_elements(item, *operands, found=found)
+                find_operands(item, *operands, found=found)
     
     return found
