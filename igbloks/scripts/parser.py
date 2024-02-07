@@ -1,4 +1,5 @@
 import pyparsing as pp
+from typing import Any
 
 __all__ = ( "deserialize", "serialize", )
 
@@ -44,3 +45,16 @@ def serialize(__l: list[str | int | bool | None | list]) -> str:
             raise ValueError('Cannot serialize item of type ' + type(item).__name__)
 
     return serialize_item(__l, 0)
+
+def find_json_encode_elements(data, *operands: str, found=None) -> list[list[str, Any]]:
+    if found is None:
+        found = []
+
+    if isinstance(data, list) and len(data) >= 2:
+        if data[0] in operands:
+            found.append(data)
+        else:
+            for item in data:
+                find_json_encode_elements(item, *operands, found=found)
+    
+    return found
