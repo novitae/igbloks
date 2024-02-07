@@ -14,6 +14,35 @@ cd igbloks
 pip install .
 ```
 ## Usage
+### BeautifulSoup 🍜
+If you have read the knowledges paper, you know that bloks looks like HTML, but under JSON format. So **this library includes a converter BLOKS to HTML**. ![](./src/Capture%20d’écran%202024-02-07%20à%2013.02.51.png) You can then use the result and **parse it using BeautifulSoup**. Here is an example:
+
+Let's say I want to get the value from this blok tree, `"May 2021"`:
+![](./src/Capture%20d’écran%202024-02-07%20à%2013.14.40.png)
+Which actually looks like this converted to HTML:
+![](./src/Capture%20d’écran%202024-02-07%20à%2013.11.24.png)
+```py
+>>> from igbloks.html import bloks_to_html
+>>> import json
+>>>
+>>> with open("bloks.json", "r") as read: # Opening my json file containing my blok response.
+...     data = json.load(read)["layout"]["bloks_payload"]["tree"] # Placing the tree in variable `data`.
+... 
+>>> htmled = bloks_to_html(tree) # Turning the tree into an HTML string.
+>>> # Here, `htmled` contains the same data as the screenshot upper.
+>>> soup = BeautifulSoup() # Loading the HTMLed bloks into BeautifulSoup
+>>>
+>>> # Then, I will search for the attribute of the item that has "Date joined". Since it doesn't change
+>>> # between the responses, it can be our stable point from which we can then search for the date that
+>>> # changes depending of the accounts.
+>>> dj = soup.find("bk.components.text", {"text": "Date joined"})
+>>> # Make sure that the name is lowercased (`"bk.components.Text"` -> `"bk.components.text"`)
+>>>
+>>> # And then I get the parent of it, search for all the `"bk.components.text"` items, at take the last
+>>> # one, which contains the date data.
+>>> dj.parent.find_all("bk.components.text")[-1]["text"]
+'May 2012'
+```
 ### Mapping 🗺️
 Due to the way instagram bloks are working, with **keys changing based on the bkid**, the mapping tool is here to **identify objects with the different keys the might be identified by**. It works using a set of responses to same requests, but with different bkids. It produces a file that the library will take as a reference to know which object has which values, their types, their required values, their names, keys, etc ... .
 
