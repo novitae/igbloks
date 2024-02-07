@@ -1,26 +1,32 @@
-from pyparsing import *
-import re
+import pyparsing as pp
 
 __all__ = ( "deserialize", "serialize", )
 
-re_clean = re.compile(r',(?=\s*\))')
-lparen = Suppress("(")
-rparen = Suppress(")")
-comma = Suppress(",")
-string = string = QuotedString("\"", escChar='\\', unquoteResults=False).setParseAction(lambda t: t[0][1:-1].encode('utf-8').decode('unicode_escape'))
-identifier = Word(alphas + ".", alphanums + "_.")
-unicode_string = Combine(Literal("\\u") + Word(hexnums, exact=4)).setParseAction(lambda t: chr(int(t[0][2:], 16)))
-number = Word(nums).setParseAction(lambda t: int(t[0]))
-boolean = (Keyword("true") | Keyword("false")).setParseAction(lambda t: t[0] == "true")
-null = Keyword("null").setParseAction(lambda t: None)
-value = Forward()
-array = Group(lparen + Optional(delimitedList(value)) + rparen)
-value << (unicode_string | string | identifier | number | boolean | null | array)
-parser = OneOrMore(value)
-parser = parser.leaveWhitespace()
+# Définir les éléments de base du parser
+LPAREN, RPAREN = map(pp.Suppress, "()")
+number = pp.pyparsing_common.number
+string = pp.QuotedString("\"", escChar='\\')
+identifier = pp.Word(pp.alphas + ".", pp.alphanums + "_.")
+
+# Définir les mots-clés pour "true", "false" et "null"
+true = pp.Keyword("true").setParseAction(pp.replaceWith(True))
+false = pp.Keyword("false").setParseAction(pp.replaceWith(False))
+null = pp.Keyword("null").setParseAction(pp.replaceWith(None))
+
+# Définir une référence avant pour les valeurs
+value = pp.Forward()
+
+# Définir les structures pour les tableaux
+array = pp.Group(LPAREN + pp.Optional(pp.delimitedList(value)) + RPAREN)
+
+# Définir ce que peut être une valeur
+value << (true | false | null | number | string | identifier | array)
+
+# Parser principal
+parser = value
 
 def deserialize(__s: str) -> list[str | int | bool | None | list]:
-    return parser.parseString(re_clean.sub('', __s)).asList()[0]
+    return parser.parseString(__s, parseAll=True).asList()[0]
 
 def serialize(__l: list[str | int | bool | None | list]) -> str:
     def serialize_item(item, i):
