@@ -7,6 +7,7 @@ from .parser import deserialize
 class Cache(BaseModel):
     device_id: str = None
     waterfall_id: str = None
+    is_dark_mode_enabled: bool = False
 
 operands: dict[str, Callable] = {}
 
@@ -95,6 +96,10 @@ def bloksgetvariable(*args, data: dict, **kwargs):
             return item["initial"]
     else:
         raise KeyError(f'value of id "{var_id}" not found')
+    
+@operand('ig.action.IsDarkModeEnabled')
+def actionisdarkmodeenable(*args, cache: Cache, **kwargs):
+    return cache.is_dark_mode_enabled
     
 # @operand("bk.action.core.If")
 # def coreif(*args, )
