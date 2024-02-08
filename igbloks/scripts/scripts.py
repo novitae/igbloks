@@ -2,13 +2,34 @@ from typing import Callable, Any
 import ujson
 from pydantic import BaseModel
 
+from .parser import deserialize
+
 class Cache(BaseModel):
     device_id: str = None
     waterfall_id: str = None
 
 operands: dict[str, Callable] = {}
 
-def execute(parsed_script: list[str, Any], cache: Cache = None):
+def execute(
+    parsed_script: list[str, Any],
+    cache: Cache = None,
+    data: dict = None,
+) -> Any:
+    """Execute a script.
+
+    Args:
+        parsed_script (list[str, Any]): The script to execute.
+        cache (Cache, optional): The cache, being a Cache object, used to fill values \
+            such as the deviceid. Defaults to None.
+        data (dict, optional): The full bloks response at ["layout"]["bloks_payload"]. \
+            Defaults to None.
+
+    Raises:
+        NotImplementedError: The instruction is not supported yet.
+
+    Returns:
+        Any: The result of the execution.
+    """
     cache = Cache() if cache is None else cache
 
     instruction, arguments = parsed_script[0], parsed_script[1:]
@@ -16,6 +37,7 @@ def execute(parsed_script: list[str, Any], cache: Cache = None):
     if instruction in operands:
         return operands[instruction]( *new_arguments,
                                       cache=cache,
+                                      data=data,
                                       operand=instruction, )
     else:
         raise NotImplementedError(f'the method "{instruction}" is not implemented')
@@ -57,3 +79,26 @@ def fromcache(*args, cache: Cache, operand: str, **kwargs):
         return cache.device_id
     elif operand == 'bk.action.caa.GetWaterfallId':
         return cache.waterfall_id
+    
+@operand('bk.action.bloks.GetScript')
+def bloksgetscript(*args, data: dict, **kwargs):
+    assert data is not None
+    return execute(deserialize(data["ft"][args[0]]), data=data, **kwargs)
+
+@operand('bk.action.bloks.GetVariable2')
+def bloksgetvariable(*args, data: dict, **kwargs):
+    assert data is not None
+    var_id = args[0]
+    for item in data["data"]:
+        if item["id"] == var_id:
+            # key, type, ..., must be investigate further
+            return item["initial"]
+    else:
+        raise KeyError(f'value of id "{var_id}" not found')
+    
+# @operand("bk.action.core.If")
+# def coreif(*args, )
+
+# @operand('bk.action.i32.Eq')
+# def i32eq(*args, **kwargs):
+#     return 
