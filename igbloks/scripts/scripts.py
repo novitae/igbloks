@@ -83,12 +83,12 @@ def fromcache(*args, cache: Cache, operand: str, **kwargs):
     
 @operand('bk.action.bloks.GetScript')
 def bloksgetscript(*args, data: dict, **kwargs):
-    assert data is not None
+    assert data is not None, 'data must be specified to execute "bk.action.bloks.GetScript" command'
     return execute(deserialize(data["ft"][args[0]]), data=data, **kwargs)
 
 @operand('bk.action.bloks.GetVariable2')
 def bloksgetvariable(*args, data: dict, **kwargs):
-    assert data is not None
+    assert data is not None, 'data must be specified to execute "bk.action.bloks.GetVariable2" command'
     var_id = args[0]
     for item in data["data"]:
         if item["id"] == var_id:
@@ -100,6 +100,17 @@ def bloksgetvariable(*args, data: dict, **kwargs):
 @operand('ig.action.IsDarkModeEnabled')
 def actionisdarkmodeenable(*args, cache: Cache, **kwargs):
     return cache.is_dark_mode_enabled
+
+@operand('bk.action.mins.CallRuntime')
+def minscallruntime(*args, **kwargs):
+    runtime, args = int(args[0]), args[1:]
+    if runtime == 6:
+        if args:
+            return {args[0]: args[1]}
+        else:
+            return {}
+    else:
+        raise ValueError(f'unknown runtime "{runtime}"')
     
 # @operand("bk.action.core.If")
 # def coreif(*args, )
