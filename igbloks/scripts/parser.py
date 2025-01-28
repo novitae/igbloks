@@ -1,143 +1,77 @@
-import pyparsing as pp
-from typing import Any
+import orjson
+from typing import Callable, Dict, Any
 
-__all__ = ( "deserialize", "serialize", )
+def is_script(s: str):
+    return s.startswith(" (") and s.endswith(")")
 
-# Définir les éléments de base du parser
-LPAREN, RPAREN = map(pp.Suppress, "()")
-number = pp.pyparsing_common.number
-string = pp.QuotedString("\"", escChar='\\')
-identifier = pp.Word(pp.alphas + ".", pp.alphanums + "_.")
+def consume_callback(s: str, x: int, callback: Callable[[str], bool]):
+    ls = len(s) - 1
+    while x < ls and callback(s[x]):
+        x += 1
+    return x
 
-# Définir les mots-clés pour "true", "false" et "null"
-true = pp.Keyword("true").setParseAction(pp.replaceWith(True))
-false = pp.Keyword("false").setParseAction(pp.replaceWith(False))
-null = pp.Keyword("null").setParseAction(pp.replaceWith(None))
+def skip_spaces(s: str, x: int):
+    return consume_callback(s=s, x=x, callback=str.isspace)
 
-# Définir une référence avant pour les valeurs
-value = pp.Forward()
-
-# Définir les structures pour les tableaux
-array = pp.Group(LPAREN + pp.Optional(pp.delimitedList(value)) + RPAREN)
-
-# Définir ce que peut être une valeur
-value << (true | false | null | number | string | identifier | array)
-
-# Parser principal
-parser = value
-
-def deserialize(__s: str) -> list[str | int | bool | None | list]:
-    return parser.parseString(__s, parseAll=True).asList()[0]
-
-def serialize(__l: list[str | int | bool | None | list]) -> str:
-    def serialize_item(item, i):
-        if isinstance(item, str):
-            return '"' + item.replace('"', '\\"') + '"' if i else item
-        elif isinstance(item, bool):
-            return 'true' if item else 'false'
-        elif item is None:
-            return 'null'
-        elif isinstance(item, int):
-            return str(item)
-        elif isinstance(item, list):
-            return '(' + ', '.join(serialize_item(item, x) for x, item in enumerate(item)) + ')'
+def try_consume_value(s: str, x: str, v: str, callback: Callable[[str], bool]):
+    lv = len(v)
+    if s.startswith(v, x) and callback(s[x + lv]) is False:
+        return x + lv
+    
+def parse_string(s: str, x: str):
+    consecutive_backlash = 0
+    y = x+1
+    while True:
+        c = s[y]
+        if c == '"' and consecutive_backlash % 2 == 0:
+            break
+        elif c == "\\":
+            consecutive_backlash += 1
         else:
-            raise ValueError('Cannot serialize item of type ' + type(item).__name__)
+            consecutive_backlash = 0
+        y += 1
+    y += 1
+    assert (c := s[y+1]) in ")," or c.isspace(), f"Found an invalidly terminated string at pos {y} with char {s[y]} (in '`{s[y-5:y+5]}`')"
+    return y, orjson.loads(s[x:y])
 
-    return serialize_item(__l, 0)
-
-def find_operands(script: list, *operands: str, found=None) -> list[list[str, Any]]:
-    """Search for specific given operands.
-
-    Args:
-        script (list): The deserialized script to search in.
-        *operands (str): The tuple of operands to search for. Defaults to None.
-
-    Returns:
-        list[list[str, Any]]: The list of matches, containing the full command \
-            of with the operand in it.
-    """
-    if found is None:
-        found = []
-
-    if isinstance(script, list) and len(script) >= 2:
-        if script[0] in operands:
-            found.append(script)
+def internal_parse(s: str, x: int):
+    result = []
+    x = skip_spaces(s, x)
+    assert s[x] == "("
+    x += 1
+    while True:
+        z = x
+        x = skip_spaces(s, x)
+        c = s[x]
+        if c == ",":
+            x += 1
+            continue
+        elif c == ")":
+            break
+        elif c == "(":
+            x, value = internal_parse(s=s, x=x)
+        elif c == '"':
+            x, value = parse_string(s=s, x=x)
+        elif c.isalnum():
+            y = consume_callback(s=s, x=x, callback=lambda v: v.isalnum() or v == ".")
+            value = s[x:y]
+            if value.isdigit():
+                value = int(value)
+            elif value == "true":
+                value = True
+            elif value == "false":
+                value = False
+            elif value == "null":
+                value = None
+            x = y
         else:
-            for item in script:
-                find_operands(item, *operands, found=found)
-    
-    return found
+            raise ValueError(s[x:])
+        assert z != x, "Position didn't move, prevented an infinite loop"
+        result.append(value)
+    assert c == ")"
+    return x+1, {result.pop(0): result}
 
-def find_value(script: list, value: Any, returned_level: int = 1) -> list:
-    """Searches for a given value inside a deserialized script.
-
-    Args:
-        script (list): The deserialized script.
-        value (Any): The value to search for.
-        returned_level (int, optional): The level relative to the value from \
-            which we should return the value. Defaults to 1. Example:
-            - "hi", 1:
-            ```
-            [
-                3,
-                "hi"
-            ]
-            ```
-            - "hi", 2:
-            ```
-            [
-                [
-                    "uh"
-                ],
-                [
-                    3,
-                    "hi"
-                ]
-            ]
-            ```
-            - "hi", 3:
-            ```
-            [
-                [
-                    [
-                        "uh"
-                    ],
-                    [
-                        3,
-                        "hi"
-                    ]
-                ],
-                89,
-                [
-                    "bonjour"
-                ]
-            ]
-            ```
-    Returns:
-        list: The value at its relative level.
-    """
-    # Fonction interne récursive avec chemin de suivi
-    def recursive_search(lst, value, path):
-        if value in lst:
-            # Retourne le chemin mis à jour avec la position actuelle
-            return path + [lst]
-        for item in lst:
-            if isinstance(item, list):
-                result = recursive_search(item, value, path + [lst])
-                if result is not None:
-                    return result
-        return None
-
-    path_to_element = recursive_search(script, value, [])
-    
-    if path_to_element is None:
-        return None  # L'élément n'a pas été trouvé
-    
-    # Remonte les niveaux en fonction de levels_to_go_up
-    if returned_level >= len(path_to_element):
-        # Si les niveaux à remonter dépassent la longueur du chemin, retourne la racine
-        return path_to_element[0]
-    else:
-        # Sinon, retourne l'élément au niveau spécifié en remontant
-        return path_to_element[-(returned_level + 1)]
+def parse(s: str) -> Dict[str, list[Any]]:
+    x, result = internal_parse(s=s, x=0)
+    assert x == len(s), "The parsing wasn't fully completed"
+    return result
