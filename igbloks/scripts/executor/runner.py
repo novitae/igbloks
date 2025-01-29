@@ -17,7 +17,7 @@ def blok_function(name: str) -> Callable[[Callable[..., Any]], Callable[..., Any
         return func
     return decorator
 
-def run(d: Dict[str, Any]):
+def run_script(d: Dict[str, Any]):
     assert len(d) == 1
     for key, value in d.items():
         if key in functions_map:
@@ -27,7 +27,7 @@ def run(d: Dict[str, Any]):
 
 def run_raw(o: Any):
     if isinstance(o, dict):
-        return run(o)
+        return run_script(o)
     else:
         return o
     

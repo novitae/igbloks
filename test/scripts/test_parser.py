@@ -1,12 +1,12 @@
 import pytest
 
-from igbloks.scripts.parser import parse
+from igbloks.scripts.parser import parse_script
 
 def test_parse():
     with pytest.raises(IndexError):
-        parse(' (funcanme, 6, (funcsub, 8)')
+        parse_script(' (funcanme, 6, (funcsub, 8)')
     with pytest.raises(AssertionError):
-        parse(' funcanme, 6, (funcsub, 8))')
+        parse_script(' funcanme, 6, (funcsub, 8))')
     with pytest.raises(AssertionError):
-        parse('(funcanme, 678')
-    assert parse('(funcanme, true, (subfunc, false, (subsub, 89272, "hello")), null)') == {'funcanme': [True, {'subfunc': [False, {'subsub': [89272, 'hello']}]}, None]}
+        parse_script('(funcanme, 678')
+    assert parse_script('(funcanme, true, (subfunc, false, (subsub, 89272, "hello")), null)') == {'funcanme': [True, {'subfunc': [False, {'subsub': [89272, 'hello']}]}, None]}

@@ -71,7 +71,7 @@ def internal_parse(s: str, x: int):
     assert c == ")"
     return x+1, {result.pop(0): result}
 
-def parse(s: str) -> Dict[str, list[Any]]:
+def parse_script(s: str) -> Dict[str, list[Any]]:
     x, result = internal_parse(s=s, x=0)
     assert x == len(s), "The parsing wasn't fully completed"
     return result
