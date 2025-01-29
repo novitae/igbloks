@@ -18,6 +18,18 @@ def blok_function(name: str) -> Callable[[Callable[..., Any]], Callable[..., Any
     return decorator
 
 def run_script(d: Dict[str, Any]):
+    """Runs a blok script that was parsed using `igbloks.scripts.parse_script`.
+
+    Args:
+        d (Dict[str, Any]): The parsed script.
+
+    Raises:
+        NotImplementedError: One of the methods encountered is not currently
+            supported by the runner.
+
+    Returns:
+        Any: The results can be very different.
+    """
     assert len(d) == 1
     for key, value in d.items():
         if key in functions_map:

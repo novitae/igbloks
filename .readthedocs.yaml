@@ -21,3 +21,6 @@ python:
   install:
     - requirements: docs/requirements.txt
         
+commands:
+  - poetry run sphinx-apidoc -o docs/source/ igbloks
+  - poetry run make -C docs html
