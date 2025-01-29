@@ -19,4 +19,7 @@ sphinx:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
+    # poetry export -f requirements.txt --without-hashes --only docs -o docs/requirements.txt
     - requirements: docs/requirements.txt
+
+# poetry run sphinx-apidoc -o docs/source/ igbloks
