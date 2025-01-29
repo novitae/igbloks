@@ -6,11 +6,6 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-import os
-import sys
-
-sys.path.insert(0, os.path.abspath(".."))
-
 project = 'igbloks'
 copyright = '2025, novitae'
 author = 'novitae'
@@ -21,8 +16,8 @@ release = '1.1a'
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.linkcode", "sphinx.ext.napoleon"]
 
-templates_path = ['../_templates']
-exclude_patterns = ['../_build', 'Thumbs.db', '.DS_Store']
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 def linkcode_resolve(domain, info):
     if domain != "py":
@@ -40,4 +35,4 @@ def linkcode_resolve(domain, info):
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'furo'
-html_static_path = ['../_static']
+html_static_path = ['_static']
