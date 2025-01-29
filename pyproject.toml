@@ -26,6 +26,7 @@ pytest = "^8.3.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
+pathlib = "^1.0.1"
 
 [tool.poetry.group.docs.dependencies]
 sphinx = "^8.1.3"
