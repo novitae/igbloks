@@ -32,7 +32,10 @@ def run_script(d: Dict[str, Any]):
     """
     assert len(d) == 1
     for key, value in d.items():
-        if key in functions_map:
+        if key.startswith("#") and key.count(":") == 1:
+            # Something like `"#ScIZ5H-rY3SSDtflJUepGg:1hf0qfbdp4"`
+            raise NotImplementedError(f"Custom functions aren't supported yet (`'{key}'`).")
+        elif key in functions_map:
             return functions_map[key](*value)
         else:
             raise NotImplementedError(f'The function `"{key}"` is not yet implemented !')

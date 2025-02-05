@@ -4,6 +4,7 @@ tests/*
 _*
 !_*.py
 mapping_dir/*
+rd/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -9,6 +9,7 @@ def test_map_make():
     assert run_script({"bk.action.map.Make": [["hello"], ["world"]]}) == {"hello": "world"}
 
 def test_array_make():
+    assert run_script({"bk.action.array.Make": []}) == []
     assert run_script({"bk.action.array.Make": ["hello", "world"]}) == ["hello", "world"]
     assert run_script({"bk.action.array.Make": ["hello", {"ret": ["world"]}]}) == ["hello", "world"]
 

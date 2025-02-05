@@ -1,11 +1,14 @@
-from typing import Dict, Optional, Any, Union
+from typing import Dict, Optional, Any, Union, List
 from pydantic.dataclasses import dataclass
 from pydantic import field_validator, Field
 import orjson
 
-class Tree:
-    def __init__(self):
-        pass
+# from .tree import Tree
+
+@dataclass(frozen=True)
+class BloksPayload:
+    ft: Dict[str, str] = None
+    """Custom functions map."""
 
 @dataclass(frozen=True)
 class BlokResponse:
