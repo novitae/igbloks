@@ -1,5 +1,5 @@
 # R&D Documentation
-This document talks about how the bloks system works, based on my observations.
+This document talks about how meta's bloks system works, based on my observations, especially on instagram.
 ## Introduction
 Bloks is an internal framework developed by Meta (formerly Facebook) to enhance the performance and efficiency of its applications. Originally built for Instagram Lite, Bloks moves most of the application’s logic to the server-side and renders it as a native app, resulting in a lightweight application that is less than 2 MB in size, compared to the full-size version, which is close to 30 MB.[^1]
 [^1]: [thenewstack.io](https://thenewstack.io/instagram-lite-is-no-longer-a-progressive-web-app-now-a-native-app-built-with-bloks/)
@@ -12,13 +12,16 @@ Here are the main elements needed to perform a request to bloks.
 The bloks version is a 64 long hexadecimal string. It is required in any bloks request for the server to understand what app version it is dealing with, and how to adapt its response accordingly.
 > [!NOTE]
 > The bloks versionning id of [Instagram v361.0.0.46.88 (android)](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass/releases/tag/v361.0.0.46.88) is `16e9197b928710eafdf1e803935ed8c450a1a2e3eb696bff1184df088b900bcf`
-#### Params
-
 #### App ID
 The app ID is the name of the blok app that will be hit. As an example:
 - `com.instagram.interactions.about_this_account`: Will return more informations about the given account.
 - `com.bloks.www.bloks.caa.reg.username.async`: The step where the username of the account being registered is set.
+#### Params
+The params are used as variables to give to the blok app. As an example, `com.instagram.interactions.about_this_account` takes two params:
+- `target_user_id`: The user id of the account we want to get the informations from.
+- `referer_type`: The referer from which we are calling the blok app (`ProfileMore` or `ProfileUsername`)
 #### Request/Response shape
+The bloks payload is contained inside the `{"layout": {"bloks_payload": ...}}`. The important data is represented as `...`. Check [the bloks payload section](#bloks-payload) for more informations.
 <details>
   <summary>Bloks API endpoint (App)</summary>
   
@@ -62,6 +65,9 @@ The app ID is the name of the blok app that will be hit. As an example:
     "status": "ok"
   }
   ```
+  To load such a response, you can use:
+  - `igbloks.BlokResponse.from_app_response`
+  - `igbloks.BlokResponse.from_app_response_dict`
 </details>
 <details>
   <summary>graphql_www endpoint (App)</summary>
@@ -111,6 +117,7 @@ The app ID is the name of the blok app that will be hit. As an example:
     }
   }
   ```
+  To load such a response, you can use `igbloks.BlokResponse.from_web_response`.
 </details>
 <details>
   <summary>Web bloks (Web)</summary>
@@ -152,6 +159,7 @@ The app ID is the name of the blok app that will be hit. As an example:
   ```js
   for (;;);{"__ar":1,"payload":{"layout":{"bloks_payload": ...}}}
   ```
+  To load such a response, you can use `igbloks.BlokResponse.from_graphql_response`.
 </details>
 
 ## Bloks payload

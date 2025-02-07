@@ -1,8 +1,35 @@
-from typing import Any, Callable, Dict, List
+from typing import Any, Callable, Dict, TYPE_CHECKING, Optional, NamedTuple
+from collections import deque
+
+if TYPE_CHECKING:
+    from ...core import BloksPayload
+else:
+    class BloksPayload: pass
+
+from ..parser import PARSED_FUNCTION, PARSED_FUNCARGS
 
 functions_map: Dict[str, Callable[[Any], Any]] = {}
 
-def blok_function(name: str) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+class CallFrame(NamedTuple):
+    func: str
+    args: PARSED_FUNCARGS
+
+class BloksScriptRunner:
+    __slots__ = ("bp", "call_stack")
+
+    def __init__(
+        self,
+        bp: Optional[BloksPayload] = None,
+    ):
+        self.bp = bp
+        self.call_stack: deque[CallFrame] = deque([])
+
+    def __repr__(self):
+        return "BloksScriptRunner({})".format(", ".join([
+            "bp=" + str(None if self.bp is None else id(self.bp)),
+        ]))
+
+def blok_function(*names: str) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
     """
     A decorator that registers a function in a global dictionary `d` under the specified name.
 
@@ -13,15 +40,18 @@ def blok_function(name: str) -> Callable[[Callable[..., Any]], Callable[..., Any
         Callable: The decorated function.
     """
     def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
-        functions_map[name] = func
+        for name in names:
+            functions_map[name] = func
         return func
     return decorator
 
-def run_script(d: Dict[str, Any]):
+def run_script(d: PARSED_FUNCTION, bsr: Optional[BloksScriptRunner] = None):
     """Runs a blok script that was parsed using `igbloks.scripts.parse_script`.
 
     Args:
-        d (Dict[str, Any]): The parsed script.
+        d (PARSED_FUNCTION): The parsed script.
+        bsr (BloksScriptRunner, optional): The `BloksScriptRunner` to track execution.
+            Default to None.
 
     Raises:
         NotImplementedError: One of the methods encountered is not currently
@@ -32,19 +62,33 @@ def run_script(d: Dict[str, Any]):
     """
     assert len(d) == 1
     for key, value in d.items():
-        if key.startswith("#") and key.count(":") == 1:
-            # Something like `"#ScIZ5H-rY3SSDtflJUepGg:1hf0qfbdp4"`
-            raise NotImplementedError(f"Custom functions aren't supported yet (`'{key}'`).")
+        break
+    if bsr is None:
+        bsr = BloksScriptRunner()
+    try:
+        bsr.call_stack.append(CallFrame(func=key, args=value))
+        if key.startswith("#"):
+            # Something like `"#ScIZ5H-rY3SSDtflJUepGg:1hf0qfbdp4"` or `#1zcqnewoit`.
+            if bsr.bp is None:
+                raise ValueError( f"Custom function detected (`'{key}'`). "
+                                    "It requires a `bp` to be set." )
+            elif key not in bsr.bp.functions:
+                raise NotImplementedError( f'The function `"{key}"` is not present in '
+                                            'the custom functions map (`.ft`).' )
+            else:
+                raise NotImplementedError('Custom functions not yet possible to run.')
         elif key in functions_map:
-            return functions_map[key](*value)
+            return functions_map[key](*value, bsr=bsr)
         else:
             raise NotImplementedError(f'The function `"{key}"` is not yet implemented !')
+    finally:
+        bsr.call_stack.pop()
 
-def run_raw(o: Any):
+def run_raw(o: Any, bsr: BloksScriptRunner):
     if isinstance(o, dict):
-        return run_script(o)
+        return run_script(d=o, bsr=bsr)
     else:
         return o
     
-def run_raw_many(l: List[Any]):
-    return [run_raw(o=o) for o in l]
+def run_raw_many(*l: PARSED_FUNCTION, bsr: BloksScriptRunner):
+    return [run_raw(o=o, bsr=bsr) for o in l]

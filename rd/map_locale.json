@@ -1,0 +1,471 @@
+{
+  "layout": {
+    "bloks_payload": {
+      "data": [
+        {
+          "data": {
+            "initial": "Non partagé",
+            "key": "IG_ABOUT_THIS_ACCOUNT:about_this_account_country:17841472169547329",
+            "mode": "p"
+          },
+          "id": "m2lj9atja",
+          "type": "gs"
+        },
+        {
+          "data": {
+            "initial": false,
+            "key": "IG_ABOUT_THIS_ACCOUNT:about_this_account_country_visibility:17841472169547329",
+            "mode": "p"
+          },
+          "id": "m2lj9atjb",
+          "type": "gs"
+        }
+      ],
+      "error_attribution": {
+        "logging_id": "{\"callsite\":\"{\\\"product\\\":\\\"about_this_account\\\",\\\"feature\\\":\\\"com.bloks.www.ig.about_this_account\\\",\\\"integration\\\":\\\"bloks_screen\\\",\\\"oncall\\\":\\\"ig_ata\\\"}\",\"push_phase\":\"C3\",\"version\":1,\"request_id\":\"AK-HlX4W9uXJXYlmRDfwVEJ\",\"www_revision\":1019889397}",
+        "source_map_id": "yutw57Pz"
+      },
+      "props": [
+        {
+          "id": "-4100637133163749715",
+          "name": "ttrc_instance_id"
+        },
+        {
+          "id": "5333708864536480156",
+          "name": "infra_screen_id"
+        }
+      ],
+      "tree": {
+        "㚞": {
+          "#": {
+            "㐈": {
+              " ": [
+                {
+                  "㐅": {
+                    " ": [
+                      {
+                        "㐈": {
+                          " ": [
+                            {
+                              "㐈": {
+                                " ": [
+                                  {
+                                    "㐈": {
+                                      " ": [
+                                        {
+                                          "㐋": {
+                                            "!": "aaq754:5",
+                                            ")": "https://scontent-lhr6-2.cdninstagram.com/v/t51.2885-19/365740442_1514045559362613_5715942917838396582_n.jpg?stp=dst-jpg_s240x240_tt6&_nc_cat=1&ccb=1-7&_nc_sid=bf7eb4&_nc_ohc=HDsHYr0vHmEQ7kNvgGPWlLN&_nc_zt=24&_nc_ht=scontent-lhr6-2.cdninstagram.com&oh=00_AYCFBCw1LUf1BceDIV0vODwl2GeWtd6MW1br4Ik1FsH7jQ&oe=67AA6506"
+                                          }
+                                        }
+                                      ],
+                                      "&": {
+                                        "㐂": {
+                                          "&": {
+                                            "㐵": {
+                                              "#": "#26FFFFFF",
+                                              "$": "#26000000"
+                                            }
+                                          },
+                                          "(": "0.5px",
+                                          "+": true,
+                                          ".": "40dp"
+                                        }
+                                      },
+                                      "": {
+                                        "㐸": {
+                                          "*": "80dp",
+                                          "A": 0,
+                                          "D": "80dp"
+                                        }
+                                      }
+                                    }
+                                  }
+                                ],
+                                "$": "center",
+                                ")": "column",
+                                "": {
+                                  "㐸": {
+                                    "7": "8dp",
+                                    "=": "16dp"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "㐈": {
+                                " ": [
+                                  {
+                                    "㐈": {
+                                      " ": [
+                                        {
+                                          "㐗": {
+                                            ")": "ssasha.lin",
+                                            "-": "16sp",
+                                            ".": "bold",
+                                            "": [
+                                              {
+                                                "㐁": {
+                                                  "#": true,
+                                                  "$": "ssasha.lin",
+                                                  "&": "Header"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "$": "center",
+                                      ",": "center",
+                                      "": {
+                                        "㐸": {
+                                          "=": "8dp",
+                                          "D": "100%"
+                                        }
+                                      }
+                                    }
+                                  }
+                                ],
+                                ")": "column"
+                              }
+                            },
+                            {
+                              "㐈": {
+                                " ": [
+                                  {
+                                    "㐑": {
+                                      " ": [
+                                        {
+                                          "㐛": {
+                                            "&": "Pour préserver l’authenticité de notre communauté, nous affichons des informations sur les comptes sur Instagram. ",
+                                            "*": "12sp",
+                                            "+": "normal",
+                                            ",": {
+                                              "㐵": {
+                                                "#": "#FFA8A8A8",
+                                                "$": "#FF737373"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "㐛": {
+                                            "$": " (bk.action.core.TakeLast, (bk.fx.action.OpenURLInIAB, \"https:\\/\\/help.instagram.com\\/697961817256175\"), (bk.action.logging.LogEvent, \"ig_about_this_account\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"target_ig_user_id\", \"event_name\", \"referer_type\", \"surface\", \"bloks_app_id\"), (bk.action.array.Make, 317404151, \"ata_help_center_click\", \"ProfileMore\", \"Landing\", \"com.bloks.www.ig.about_this_account\"))))",
+                                            "&": "Découvrez pourquoi ces informations sont importantes.",
+                                            "*": "12sp",
+                                            "+": "semibold",
+                                            ",": {
+                                              "㐵": {
+                                                "#": "#FFE0F1FF",
+                                                "$": "#FF00376B"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "*": "center"
+                                    }
+                                  }
+                                ],
+                                "$": "center",
+                                ")": "column",
+                                "": {
+                                  "㐸": {
+                                    "7": "8dp",
+                                    "8": "32dp",
+                                    ";": "32dp",
+                                    "=": "8dp"
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          ")": "column",
+                          "": {
+                            "㐸": {
+                              "7": "12dp"
+                            }
+                          },
+                          "": []
+                        }
+                      },
+                      {
+                        "㐈": {
+                          " ": [
+                            {
+                              "㐈": {
+                                " ": [
+                                  {
+                                    "㐈": {
+                                      " ": [
+                                        {
+                                          "㐈": {
+                                            " ": [
+                                              {
+                                                "㐈": {
+                                                  " ": [
+                                                    {
+                                                      "㑄": {
+                                                        "#": "24dp",
+                                                        "$": "calendar-pano_outline_24",
+                                                        "(": {
+                                                          "㐵": {
+                                                            "#": "#FFF5F5F5",
+                                                            "$": "#FF000000"
+                                                          }
+                                                        },
+                                                        ")": "https://static.xx.fbcdn.net/rsrc.php/v4/y-/r/sQ-s2RePZ6r.png",
+                                                        "*": "24dp"
+                                                      }
+                                                    }
+                                                  ],
+                                                  ")": "row",
+                                                  "": {
+                                                    "㐸": {
+                                                      "8": "12dp"
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "㐈": {
+                                                  " ": [
+                                                    {
+                                                      "㐗": {
+                                                        ")": "Date d’inscription",
+                                                        "-": "16sp",
+                                                        ".": "normal",
+                                                        "0": {
+                                                          "㐵": {
+                                                            "#": "#FFF5F5F5",
+                                                            "$": "#FF000000"
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "㐗": {
+                                                        ")": "Mars 2013",
+                                                        "-": "14sp",
+                                                        ".": "normal",
+                                                        "0": {
+                                                          "㐵": {
+                                                            "#": "#FFA8A8A8",
+                                                            "$": "#FF737373"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  ")": "column"
+                                                }
+                                              }
+                                            ],
+                                            "$": "center"
+                                          }
+                                        }
+                                      ],
+                                      ")": "column",
+                                      "": {
+                                        "㐸": {
+                                          "7": "12dp",
+                                          "9": "16dp",
+                                          ":": "16dp",
+                                          "=": "12dp"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "㐈": {
+                                      " ": [],
+                                      "$": "center",
+                                      ")": "row",
+                                      ",": "space_between"
+                                    }
+                                  }
+                                ],
+                                "$": "center",
+                                ")": "row",
+                                ",": "space_between",
+                                "": [
+                                  {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Date d’inscription",
+                                      "&": "Button"
+                                    }
+                                  },
+                                  {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Date d’inscription",
+                                      "&": "Button"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "㐈": {
+                                " ": [
+                                  {
+                                    "㐈": {
+                                      " ": [
+                                        {
+                                          "㐈": {
+                                            " ": [
+                                              {
+                                                "㐈": {
+                                                  " ": [
+                                                    {
+                                                      "㑄": {
+                                                        "#": "24dp",
+                                                        "$": "location-pano_outline_24",
+                                                        "(": {
+                                                          "㐵": {
+                                                            "#": "#FFF5F5F5",
+                                                            "$": "#FF000000"
+                                                          }
+                                                        },
+                                                        ")": "https://static.xx.fbcdn.net/rsrc.php/v4/yO/r/PKw7a36ySpp.png",
+                                                        "*": "24dp"
+                                                      }
+                                                    }
+                                                  ],
+                                                  ")": "row",
+                                                  "": {
+                                                    "㐸": {
+                                                      "8": "12dp"
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "㐈": {
+                                                  " ": [
+                                                    {
+                                                      "㐗": {
+                                                        ")": "Localisation du compte :",
+                                                        "-": "16sp",
+                                                        ".": "normal",
+                                                        "0": {
+                                                          "㐵": {
+                                                            "#": "#FFF5F5F5",
+                                                            "$": "#FF000000"
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "㐗": {
+                                                        "-": "14sp",
+                                                        ".": "normal",
+                                                        "0": {
+                                                          "㐵": {
+                                                            "#": "#FFA8A8A8",
+                                                            "$": "#FF737373"
+                                                          }
+                                                        },
+                                                        "": " (bk.action.array.Make, \")\", (bk.action.core.Match, (bk.action.bloks.GetVariable2, \"m2lj9atjb\"), (bk.action.array.Make, (bk.action.core.Pattern, true, (bk.action.core.FuncConst, \"\"))), (bk.action.core.Default, (bk.action.core.FuncConst, \"Non partag\\u00e9\"))))"
+                                                      }
+                                                    }
+                                                  ],
+                                                  ")": "column"
+                                                }
+                                              }
+                                            ],
+                                            "$": "center"
+                                          }
+                                        }
+                                      ],
+                                      ")": "column",
+                                      "": {
+                                        "㐸": {
+                                          "7": "12dp",
+                                          "9": "16dp",
+                                          ":": "16dp",
+                                          "=": "12dp"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "㐈": {
+                                      " ": [],
+                                      "$": "center",
+                                      ")": "row",
+                                      ",": "space_between"
+                                    }
+                                  }
+                                ],
+                                "$": "center",
+                                ")": "row",
+                                ",": "space_between",
+                                "": [
+                                  {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Localisation du compte :",
+                                      "&": "Button"
+                                    }
+                                  },
+                                  {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Localisation du compte :",
+                                      "&": "Button"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          ")": "column"
+                        }
+                      }
+                    ],
+                    "*": "column"
+                  }
+                }
+              ],
+              "&": {
+                "㐂": {
+                  "#": {
+                    "㐜": {
+                      "#": {
+                        "㐵": {
+                          "#": "#FF000000",
+                          "$": "#FFFFFFFF"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              ")": "column",
+              "": [
+                {
+                  "䂑": {
+                    "$": " (bk.action.core.TakeLast, (bk.action.core.Match, (bk.action.bool.Not, (bk.action.f32.Eq, (bk.action.bloks.GetVariable2, \"-4100637133163749715\"), null)), (bk.action.array.Make, (bk.action.core.Pattern, true, (bk.action.core.FuncConst, (bk.action.ttrc.AddAnnotation, 719983200, (bk.action.bloks.GetVariable2, \"-4100637133163749715\"), (bk.action.map.Make, (bk.action.array.Make, \"app_id\", \"module\"), (bk.action.array.Make, \"com.bloks.www.ig.about_this_account\", null)))))), (bk.action.core.Default, (bk.action.core.FuncConst, null))), (bk.action.core.Match, (bk.action.bool.Not, (bk.action.f32.Eq, (bk.action.bloks.GetVariable2, \"-4100637133163749715\"), null)), (bk.action.array.Make, (bk.action.core.Pattern, true, (bk.action.core.FuncConst, (bk.action.ttrc.NetworkContentDisplayed, 719983200, (bk.action.bloks.GetVariable2, \"-4100637133163749715\"), \"manual_tracking\")))), (bk.action.core.Default, (bk.action.core.FuncConst, null))))"
+                  }
+                },
+                {
+                  "㙚": {
+                    ")": " (bk.action.logging.LogEvent, \"ig_about_this_account\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"target_ig_user_id\", \"event_name\", \"referer_type\", \"surface\", \"bloks_app_id\"), (bk.action.array.Make, 317404151, \"impression\", \"ProfileMore\", \"Landing\", \"com.bloks.www.ig.about_this_account\")))"
+                  }
+                }
+              ]
+            }
+          },
+          "$": {
+            "㗙": {
+              "$": "À propos de ce compte"
+            }
+          }
+        }
+      }
+    }
+  },
+  "status": "ok"
+}

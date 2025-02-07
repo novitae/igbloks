@@ -1,8 +1,11 @@
 import orjson
-from typing import Callable, Dict, Any
+from typing import Callable, Dict, Union
+import re
+
+digit = re.compile(r"^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?$")
 
 def is_script(s: str):
-    return s.startswith(" (") and s.endswith(")")
+    return s.startswith(("(", " (")) and s.endswith(")")
 
 def consume_callback(s: str, x: int, callback: Callable[[str], bool]):
     ls = len(s) - 1
@@ -55,8 +58,8 @@ def internal_parse(s: str, x: int):
         elif c.isalnum():
             y = consume_callback(s=s, x=x, callback=lambda v: v.isalnum() or v == ".")
             value = s[x:y]
-            if value.isdigit():
-                value = int(value)
+            if digit.match(value):
+                value = float(value)
             elif value == "true":
                 value = True
             elif value == "false":
@@ -71,7 +74,9 @@ def internal_parse(s: str, x: int):
     assert c == ")"
     return x+1, {result.pop(0): result}
 
-def parse_script(s: str) -> Dict[str, list[Any]]:
+PARSED_FUNCARGS = list[Union["PARSED_FUNCTION", str, bool, float, None]]
+PARSED_FUNCTION = Dict[str, PARSED_FUNCARGS]
+def parse_script(s: str) -> PARSED_FUNCTION:
     x, result = internal_parse(s=s, x=0)
     assert x == len(s), "The parsing wasn't fully completed"
     return result

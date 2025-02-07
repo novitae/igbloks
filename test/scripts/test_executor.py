@@ -1,17 +1,9 @@
 from igbloks.scripts.executor import run_script, functions_map
 
 # Test func
-def _ret(*args):
+def _ret(*args, bsr = None):
     return args[0]
 functions_map["ret"] = _ret
-
-def test_map_make():
-    assert run_script({"bk.action.map.Make": [["hello"], ["world"]]}) == {"hello": "world"}
-
-def test_array_make():
-    assert run_script({"bk.action.array.Make": []}) == []
-    assert run_script({"bk.action.array.Make": ["hello", "world"]}) == ["hello", "world"]
-    assert run_script({"bk.action.array.Make": ["hello", {"ret": ["world"]}]}) == ["hello", "world"]
 
 def test_large():
     assert run_script({'bk.action.map.Make': [{'bk.action.array.Make': ['target_ig_user_id',

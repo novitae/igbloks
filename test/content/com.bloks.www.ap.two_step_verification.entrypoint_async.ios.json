@@ -1,0 +1,745 @@
+{
+  "layout": {
+    "bloks_payload": {
+      "ft": {
+        "1zq8q7vgfm": "(bk.action.bloks.GetPayload, \"1zq8q7vggp\", (bk.action.mins.CallRuntime, 6))"
+      },
+      "data": [{
+        "id": "1zq8q7vgdj",
+        "type": "ls",
+        "data": {
+          "initial": 1,
+          "depth": 1
+        }
+      }, {
+        "id": "1zq8q7vge3",
+        "type": "ls",
+        "data": {
+          "initial": 1,
+          "depth": 1
+        }
+      }, {
+        "id": "1zq8q7vgew",
+        "type": "ls",
+        "data": {
+          "initial": 1,
+          "depth": 2
+        }
+      }],
+      "embedded_payloads": [{
+        "id": "1zq8q7vgg0",
+        "payload": {
+          "layout": {
+            "bloks_payload": {
+              "ft": {
+                "1zq8q7vgfr": "(bk.action.core.TakeLast, (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_button_clicked\", \"x\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\"))), (#1zq8q7vgfs, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)))",
+                "1zq8q7vgfs": "(bk.action.core.TakeLast, (#1zq8q7vgft, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)), (#1zq8q7vgfu, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)))",
+                "1zq8q7vgft": "(bk.action.core.TakeLast, (bk.action.bloks.DismissKeyboard, (bk.action.core.GetArg, 1)), (bk.action.cds.CloseScreen, null, (bk.action.core.GetArg, 1)))",
+                "1zq8q7vgfu": "(bk.action.f32.Const, 1)"
+              },
+              "referenced": ["1zq8q7vgew"],
+              "tree": {
+                "㜍": {
+                  "$": {
+                    "㐈": {
+                      " ": []
+                    }
+                  },
+                  "(": {
+                    "㐈": {
+                      ")": "column",
+                      " ": [{
+                        "㐈": {
+                          ")": "row",
+                          ",": "center",
+                          "$": "center",
+                          " ": [{
+                            "㐈": {
+                              ")": "row",
+                              "$": "center",
+                              " ": [{
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "stretch",
+                                  " ": [{
+                                    "㐈": {
+                                      " ": [{
+                                        "㐈": {
+                                          "\u0026": {
+                                            "㐂": {}
+                                          },
+                                          " ": [{
+                                            "㐈": {
+                                              ",": "center",
+                                              "$": "center",
+                                              " ": [{
+                                                "㐈": {
+                                                  ",": "center",
+                                                  "$": "center",
+                                                  " ": [{
+                                                    "㐋": {
+                                                      ")": "https://static.xx.fbcdn.net/rsrc.php/v4/yJ/r/K3zw-xDOFKR.png",
+                                                      "#": {
+                                                        "㐵": {
+                                                          "$": "#FF0A1317",
+                                                          "#": "#FFF1F4F7"
+                                                        }
+                                                      }
+                                                    }
+                                                  }],
+                                                  "": [{
+                                                    "㙚": {
+                                                      ")": " (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_rendered\", \"x\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\")))"
+                                                    }
+                                                  }],
+                                                  "": {
+                                                    "㐸": {
+                                                      "D": "24dp",
+                                                      "*": "24dp"
+                                                    }
+                                                  }
+                                                }
+                                              }],
+                                              "": [{
+                                                "㕸": {
+                                                  "": 1
+                                                }
+                                              }],
+                                              "": {
+                                                "㐸": {
+                                                  "K": {
+                                                    "㚳": {
+                                                      "*": "10dp",
+                                                      "#": "10dp",
+                                                      ")": "10dp",
+                                                      "$": "10dp"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }],
+                                          "!": "xgrr9l:59",
+                                          "": [{
+                                            "㕸": {
+                                              "": ["", " (bk.action.bloks.GetVariableWithScope, \"1zq8q7vgew\", 2)"]
+                                            }
+                                          }, {
+                                            "㚝": {
+                                              "\u0026": " (bk.action.core.TakeLast, (#1zq8q7vgfr, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)), (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgew\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 2)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))))",
+                                              "#": " (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgew\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 2)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1)))",
+                                              "$": " (bk.action.core.TakeLast, (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgew\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 2)), null, 1, 0.75, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))), true)"
+                                            }
+                                          }, {
+                                            "㚮": {
+                                              "#": ["button"],
+                                              ")": "Fermer",
+                                              ",": true
+                                            }
+                                          }],
+                                          "": {
+                                            "㐸": {
+                                              ")": 0
+                                            }
+                                          },
+                                          "1": "visible",
+                                          "(": true
+                                        }
+                                      }],
+                                      "!": "xgrr9l:54",
+                                      "": [{
+                                        "䂃": {
+                                          "#": 300004
+                                        }
+                                      }],
+                                      "": {
+                                        "㐸": {
+                                          ")": 0,
+                                          "A": 0,
+                                          "1": "16dp",
+                                          "-": "8dp"
+                                        }
+                                      },
+                                      "1": "visible"
+                                    }
+                                  }],
+                                  "": {
+                                    "㐸": {
+                                      "D": "60dp",
+                                      "*": "44dp"
+                                    }
+                                  }
+                                }
+                              }],
+                              "": {
+                                "㐸": {
+                                  "*": "100%",
+                                  "C": "0dp",
+                                  "\u003e": "absolute",
+                                  "B": "0dp"
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "flex_start",
+                              "$": "center",
+                              " ": [],
+                              "": {
+                                "㐸": {
+                                  "4": "132dp",
+                                  "6": "60dp",
+                                  ")": 0,
+                                  "A": 0
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "center",
+                              "$": "center",
+                              " ": [{
+                                "㜺": {
+                                  " ": [{
+                                    "㐛": {
+                                      "\u0026": "Pourquoi je ne parviens pas à me connecter ?",
+                                      "*": "17.10sp",
+                                      "+": "semibold",
+                                      ",": {
+                                        "㐵": {
+                                          "$": "#FF0A1317",
+                                          "#": "#FFF1F4F7"
+                                        }
+                                      },
+                                      "#": "Optimistic VF App Lite",
+                                      "-": false
+                                    }
+                                  }],
+                                  ",": "center",
+                                  ")": 1.0001,
+                                  "*": 1,
+                                  ".": [{
+                                    "㐛": {
+                                      "\u0026": "…",
+                                      "*": "17.10sp",
+                                      "+": "semibold",
+                                      ",": {
+                                        "㐵": {
+                                          "$": "#FF0A1317",
+                                          "#": "#FFF1F4F7"
+                                        }
+                                      },
+                                      "#": "Optimistic VF App Lite",
+                                      "1": 0
+                                    }
+                                  }],
+                                  "#": 8,
+                                  "$": 8,
+                                  "": [{
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Pourquoi je ne parviens pas à me connecter ?",
+                                      "\u0026": "Header"
+                                    }
+                                  }, {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Pourquoi je ne parviens pas à me connecter ?",
+                                      "\u0026": "Header"
+                                    }
+                                  }, {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Pourquoi je ne parviens pas à me connecter ?",
+                                      "\u0026": "Header"
+                                    }
+                                  }, {
+                                    "㐁": {
+                                      "#": true,
+                                      "$": "Pourquoi je ne parviens pas à me connecter ?",
+                                      "\u0026": "Header"
+                                    }
+                                  }]
+                                }
+                              }],
+                              "": [{
+                                "㕸": {}
+                              }],
+                              "": {
+                                "㐸": {
+                                  ")": 1,
+                                  "A": 1
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "flex_end",
+                              "$": "center",
+                              " ": [],
+                              "": {
+                                "㐸": {
+                                  "4": "132dp",
+                                  "6": "60dp",
+                                  ")": 0,
+                                  "A": 0
+                                }
+                              }
+                            }
+                          }],
+                          "": [],
+                          "": {
+                            "㐸": {
+                              "D": "100%",
+                              "*": "52dp"
+                            }
+                          }
+                        }
+                      }],
+                      "": {
+                        "㐸": {
+                          "7": "0dp"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }, {
+        "id": "1zq8q7vggp",
+        "payload": {
+          "layout": {
+            "bloks_payload": {
+              "ft": {
+                "1zq8q7vgg3": "(bk.action.core.TakeLast, (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_button_clicked\", \"caret-left\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\"))), (#1zq8q7vgg4, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)))",
+                "1zq8q7vgg4": "(bk.action.core.TakeLast, (bk.action.cds.PopScreen, (bk.action.tree.Make, 16088), (bk.action.core.GetArg, 1)), (#1zq8q7vgg5, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)))",
+                "1zq8q7vgg5": "(bk.action.logging.LogEvent, \"two_step_verification_button_tap_event_ig\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"screen_id\", \"button_id\", \"flow\", \"approval_id\"), (bk.action.array.Make, \"generic_code_entry\", \"nav_bar_left_nav_button\", 1, (bk.action.i64.Const, 915042190841206))))",
+                "1zq8q7vgge": "(bk.action.core.TakeLast, (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_button_clicked\", \"question-circle\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\"))), (#1zq8q7vggf, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)))",
+                "1zq8q7vggf": "(bk.action.core.TakeLast, (bk.action.cds.OpenScreen, (bk.action.tree.Make, 13784, 38, (bk.action.tree.Make, 13901, 35, (bk.action.bloks.GetScript, \"1zq8q7vggg\")), 35, \"com.bloks.www.ap.two_step_verification.code_entry_help\", 49, 719983200, 45, \"code_entry_help\", 46, 0, 42, (bk.action.array.Make, (bk.action.tree.Make, 15932, 36, \"none\")), 52, 719983200, 56, (bk.action.core.FuncConst, (bk.action.mins.CallRuntime, 6))), (bk.action.tree.Make, 16085, 38, \"half_sheet\", 36, \"enabled\", 40, (bk.action.core.FuncConst, 1), 35, \"animated\", 44, (bk.action.core.FuncConst, (bk.action.mins.CallRuntime, 6))), (bk.action.mins.CallRuntime, 6, \"params\", (bk.action.string.JsonEncode, (bk.action.mins.CallRuntime, 6, \"server_params\", (bk.action.map.Make, (bk.action.array.Make, \"context_data\", \"device_id\", \"INTERNAL_INFRA_screen_id\"), (bk.action.array.Make, \"Aa0eGUdozUXnSlXz95Hgzs-hcA9cGt2Up9CHE_xg1WDjmctGvhAu6GO6Z9YcXWbZoKhXUmqpn5sdo7G2Hc3LKuweKn8QG92-y9xoZMRSt9fcLqWFiob4GKuBWqprDakL2QPsBsnpKeAYbqiYKlqHMvNHunI2_R7JQHuyV7a9unKSDjx1H3CkSkZgAYbCJim5MZb1qfUiwOcvOPphvj94uXElXmCCfsDF-0uYXKzfGGKzMjsr-HXUBTtyZgR7Rg4TGfauHKyeg4OsW4VOAsSr4NRLY377jA07K6WoSOMBQTbXrbPuAh6zeVo8G-GEIPz6xBRqL7bHLOPedGab1j-yUVNs3rRe1GkpWY0bWLQIbKApo25CEH-2josv_8rI_MIn2qZIG1DOjS7D3wThW7Na2mBmIjcbL2pU5YBRYtQgtVtS4ACwgjm7YlQvtujbUEB5kY6qfxeRFTgIHwNJaTZLH5vH-UlrU8DxUQhByE3sGxT8glqapE6qX5cyNg9TBFrL1hXOlzbXxCBO_Tcbsfxj1CWQsV1Si8cjBf9kupdmugKDnzQ1Red96ZsWXG58SQAe5mt2a_kMhWJL33fCrd_ApwkSunsgTccU0DVDvwbc0c1PhwnsyEcE2HqaQaPuQ8ks3pUM0C0SdTFegKi8Uie74B8UG-TX1usUNCBnrR5cOpQKgWgsIGhyJ43jxgzqLCvD2h-ea-iUIn1Ly19XoP8fqO3-mQujRKkd4s7CVhcCUC4qVDmQu0tLGm3GxEeYwU_jL3d6hDSohhROlDiUEKuFj4X0KnaZQWPKQ7s6_DQW4f7X99rOpmbT9sVLQ1BNcTgsBmmsNHo39X_i9WFwoE4KQXPL-WFPv_6D1FY47KDtYXWN07qMcfREYF6hw8LXSSDlq6OQc7KM-tUc3yhw4_wyLbcgtnaK0zkZ3aYjfm6ZJK8e3NsuqlkZMU30xaRShaY5zxsCiuSwS4_peiXykL6qfFmKCrb0-90Db1sqkvvDBDuVTiFPz0fpGrr4C8a--oxwSiDl9jV0C6KfLyGjcAeAaDA8bJnrClPLowDnrsLf5w-aCPSSB7m93siSe4eHRrTTIA-1ICaLIt5ywqp2kiFBJV2nRZOmse_Dyw0_m6LroNI6awTWsMmpMm_sZW9VrY6gxxREDZOFaebIjLhQhV5Kz_2akqfN8fHP0cCiHHYNvN_UY1Cr5XEWKn-N5_W1-g8O1nSgn1BKoWpEJboi9iC5qTRaN9M65DxKBNCdYjfJcE02NZxeNraz8l_vCwE9AJa2aZzsuMjMj1pzi_azkUkxoAReAtSMATkQ1YARtqlxAUj154UVcKd9LnQVCYVW5pISF4Kpb1opan2ZlBzomz80FRhbpBOy63lI9KZ0jUdtNRV76RFi_-5AW70WeP2RlgKflwl7N5SuwIOSkBWo7BJbJDyonn_oieD9b4-7VFWy1t20OrksrCYRqjHau3Frsxlma5_8YDPxfj8JEJEkA5UvrN_KaD9wGVUlaP_bqwFgpxAunbdUA3nUNTPB7_-6MAFO8A0MPZxRuUl4Vq3257VchOSWO7x9luUG8iuvDyGnOcEd_yEzbgkrpSLw-vGtKfL9Nd4yXnC9j43d5WoGC9on6giL-3JFh2njMg9bl5xQudscYvYtMtb92TA8AhWpd7gl3XWELU6j-V8lXnNjOLoID7pyYLBzC36raBPIp3Ng04USbl7AY9OSX2NgOjRAfYwXMp1JVZ4h37q40C9j2gb_zj9p2IrDwSGD5pReGDbmlzp1w6tduSBIUvgHwcqKrl4eCP2tpz6q85UGOqWrAfSXecCPTdF-tkAe8mvYmFMJRaPXvL3qzMv_xddfMUMPtWCuCVV9YCQgB0dQjgdq9UbrTTSezan7DZ2G9kxmhq-PyjUcEFi2A-thSIY_CHzMSvaLTFHe2qGsarmADt_v_Ndw39U0y0dq79jGr7mVJPKSNmfwcFA0apoX4DtJotCECU42XpQ9vNHAlZ7H1_RJDmQqK-P0-IaxsP-80pUu9Wm5Y4MiCc7zTxjqG8qI6sz7GKePYak1NBKkIOdQk7LuC6V-UA|aplc\", \"416D444A-C48E-4274-92A2-5C5EAE4F3714\", \"code_entry_help\"))))), (bk.action.core.GetArg, 1)), (bk.action.logging.LogEvent, \"two_step_verification_button_tap_event_ig\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"screen_id\", \"button_id\", \"flow\", \"approval_id\"), (bk.action.array.Make, \"email_challenge\", \"nav_bar_right_help_button\", 1, (bk.action.i64.Const, 915042190841206)))))",
+                "1zq8q7vggg": "(bk.action.bloks.GetPayload, \"1zq8q7vgg0\", (bk.action.mins.CallRuntime, 6))"
+              },
+              "referenced": ["1zq8q7vgdj", "1zq8q7vge3", "1zq8q7vgew"],
+              "referenced_embedded_payloads": ["1zq8q7vgg0"],
+              "tree": {
+                "㜍": {
+                  "$": {
+                    "㐈": {
+                      " ": []
+                    }
+                  },
+                  "(": {
+                    "㐈": {
+                      ")": "column",
+                      " ": [{
+                        "㐈": {
+                          ")": "row",
+                          ",": "center",
+                          "$": "center",
+                          " ": [{
+                            "㐈": {
+                              ")": "row",
+                              "$": "center",
+                              " ": [{
+                                "㐈": {
+                                  ")": "row",
+                                  ",": "flex_start",
+                                  "$": "stretch",
+                                  " ": [{
+                                    "㐈": {
+                                      " ": [{
+                                        "㐈": {
+                                          "\u0026": {
+                                            "㐂": {}
+                                          },
+                                          " ": [{
+                                            "㐈": {
+                                              ",": "center",
+                                              "$": "center",
+                                              " ": [{
+                                                "㐈": {
+                                                  ",": "center",
+                                                  "$": "center",
+                                                  " ": [{
+                                                    "㐋": {
+                                                      ")": "https://static.xx.fbcdn.net/rsrc.php/v4/yP/r/klQDZx47OTJ.png",
+                                                      "#": {
+                                                        "㐵": {
+                                                          "$": "#FF0A1317",
+                                                          "#": "#FFF1F4F7"
+                                                        }
+                                                      }
+                                                    }
+                                                  }],
+                                                  "": [{
+                                                    "㙚": {
+                                                      ")": " (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_rendered\", \"caret-left\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\")))"
+                                                    }
+                                                  }],
+                                                  "": {
+                                                    "㐸": {
+                                                      "D": "24dp",
+                                                      "*": "24dp"
+                                                    }
+                                                  }
+                                                }
+                                              }],
+                                              "": [{
+                                                "㕸": {
+                                                  "": 1
+                                                }
+                                              }],
+                                              "": {
+                                                "㐸": {
+                                                  "K": {
+                                                    "㚳": {
+                                                      "*": "10dp",
+                                                      "#": "10dp",
+                                                      ")": "10dp",
+                                                      "$": "10dp"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }],
+                                          "!": "xgrr9l:10",
+                                          "": [{
+                                            "㕸": {
+                                              "": ["", " (bk.action.bloks.GetVariableWithScope, \"1zq8q7vgdj\", 1)"]
+                                            }
+                                          }, {
+                                            "㚝": {
+                                              "\u0026": " (bk.action.core.TakeLast, (#1zq8q7vgg3, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)), (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgdj\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))))",
+                                              "#": " (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgdj\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1)))",
+                                              "$": " (bk.action.core.TakeLast, (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vgdj\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 1, 0.75, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))), true)"
+                                            }
+                                          }, {
+                                            "㚮": {
+                                              "#": ["button"],
+                                              ")": "Retour",
+                                              ",": true
+                                            }
+                                          }],
+                                          "": {
+                                            "㐸": {
+                                              ")": 0
+                                            }
+                                          },
+                                          "(": true
+                                        }
+                                      }],
+                                      "!": "xgrr9l:3",
+                                      "": [{
+                                        "䂃": {
+                                          "#": 300004
+                                        }
+                                      }],
+                                      "": {
+                                        "㐸": {
+                                          ")": 0,
+                                          "A": 0,
+                                          "1": "13dp",
+                                          "-": "8dp"
+                                        }
+                                      }
+                                    }
+                                  }],
+                                  "": {
+                                    "㐸": {
+                                      "D": "60dp",
+                                      "*": "44dp"
+                                    }
+                                  }
+                                }
+                              }],
+                              "": {
+                                "㐸": {
+                                  "*": "100%",
+                                  "C": "0dp",
+                                  "\u003e": "absolute",
+                                  "B": "0dp"
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "flex_start",
+                              "$": "center",
+                              " ": [{
+                                "㐈": {
+                                  "1": "invisible",
+                                  ")": "row",
+                                  " ": [{
+                                    "㐈": {
+                                      " ": [{
+                                        "㐈": {
+                                          "\u0026": {
+                                            "㐂": {}
+                                          },
+                                          " ": [{
+                                            "㐈": {
+                                              ",": "center",
+                                              "$": "center",
+                                              " ": [{
+                                                "㐈": {
+                                                  ",": "center",
+                                                  "$": "center",
+                                                  " ": [{
+                                                    "㐋": {
+                                                      ")": "https://static.xx.fbcdn.net/rsrc.php/v4/yc/r/yCxR_BfmyRU.png",
+                                                      "#": {
+                                                        "㐵": {
+                                                          "$": "#FF0A1317",
+                                                          "#": "#FFF1F4F7"
+                                                        }
+                                                      }
+                                                    }
+                                                  }],
+                                                  "": [{
+                                                    "㙚": {
+                                                      ")": " (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_rendered\", \"question-circle\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\")))"
+                                                    }
+                                                  }],
+                                                  "": {
+                                                    "㐸": {
+                                                      "D": "24dp",
+                                                      "*": "24dp"
+                                                    }
+                                                  }
+                                                }
+                                              }],
+                                              "": [{
+                                                "㕸": {
+                                                  "": 1
+                                                }
+                                              }],
+                                              "": {
+                                                "㐸": {
+                                                  "K": {
+                                                    "㚳": {
+                                                      "*": "10dp",
+                                                      "#": "10dp",
+                                                      ")": "10dp",
+                                                      "$": "10dp"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }],
+                                          "!": "xgrr9l:47",
+                                          "": [{
+                                            "㚮": {
+                                              "#": ["button"],
+                                              ")": "Aide",
+                                              ",": true
+                                            }
+                                          }],
+                                          "": {
+                                            "㐸": {
+                                              ")": 0
+                                            }
+                                          }
+                                        }
+                                      }],
+                                      "": [{
+                                        "䂃": {
+                                          "#": 300004
+                                        }
+                                      }],
+                                      "": {
+                                        "㐸": {
+                                          ")": 0,
+                                          "-": "20dp"
+                                        }
+                                      }
+                                    }
+                                  }]
+                                }
+                              }],
+                              "": {
+                                "㐸": {
+                                  "4": "50%",
+                                  "6": "60dp",
+                                  ")": 0,
+                                  "A": 0
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "center",
+                              "$": "center",
+                              " ": [],
+                              "": [{
+                                "㕸": {}
+                              }],
+                              "": {
+                                "㐸": {
+                                  ")": 1,
+                                  "A": 1
+                                }
+                              }
+                            }
+                          }, {
+                            "㐈": {
+                              ")": "row",
+                              ",": "flex_end",
+                              "$": "center",
+                              " ": [{
+                                "㐈": {
+                                  "1": "visible",
+                                  ")": "row",
+                                  " ": [{
+                                    "㐈": {
+                                      " ": [{
+                                        "㐈": {
+                                          "\u0026": {
+                                            "㐂": {}
+                                          },
+                                          " ": [{
+                                            "㐈": {
+                                              ",": "center",
+                                              "$": "center",
+                                              " ": [{
+                                                "㐈": {
+                                                  ",": "center",
+                                                  "$": "center",
+                                                  " ": [{
+                                                    "㐋": {
+                                                      ")": "https://static.xx.fbcdn.net/rsrc.php/v4/yc/r/yCxR_BfmyRU.png",
+                                                      "#": {
+                                                        "㐵": {
+                                                          "$": "#FF0A1317",
+                                                          "#": "#FFF1F4F7"
+                                                        }
+                                                      }
+                                                    }
+                                                  }],
+                                                  "": [{
+                                                    "㙚": {
+                                                      ")": " (bk.action.logging.LogEvent, \"xmds_mobile_quality\", \"\", (bk.action.map.Make, (bk.action.array.Make, \"event\", \"element\", \"screen\", \"icon_design_system\"), (bk.action.array.Make, \"icon_rendered\", \"question-circle\", \"com.bloks.www.ap.two_step_verification.entrypoint_async\", \"meta_brand\")))"
+                                                    }
+                                                  }],
+                                                  "": {
+                                                    "㐸": {
+                                                      "D": "24dp",
+                                                      "*": "24dp"
+                                                    }
+                                                  }
+                                                }
+                                              }],
+                                              "": [{
+                                                "㕸": {
+                                                  "": 1
+                                                }
+                                              }],
+                                              "": {
+                                                "㐸": {
+                                                  "K": {
+                                                    "㚳": {
+                                                      "*": "10dp",
+                                                      "#": "10dp",
+                                                      ")": "10dp",
+                                                      "$": "10dp"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }],
+                                          "!": "xgrr9l:30",
+                                          "": [{
+                                            "㕸": {
+                                              "": ["", " (bk.action.bloks.GetVariableWithScope, \"1zq8q7vge3\", 1)"]
+                                            }
+                                          }, {
+                                            "㚝": {
+                                              "\u0026": " (bk.action.core.TakeLast, (#1zq8q7vgge, (bk.action.core.GetArg, 0), (bk.action.core.GetArg, 1)), (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vge3\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))))",
+                                              "#": " (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vge3\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 0.75, 1, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1)))",
+                                              "$": " (bk.action.core.TakeLast, (bk.action.animated.Start, (bk.action.animated.Create, (bk.action.core.FuncConst, (bk.action.bloks.WriteLocalState, \"1zq8q7vge3\", (bk.action.animated.GetCurrentValue, (bk.action.core.GetArg, 0)), 1)), null, 1, 0.75, 0.2, (bk.action.animated.easing.CreateCubicBezier, 0.17, 0.17, 0, 1))), true)"
+                                            }
+                                          }, {
+                                            "㚮": {
+                                              "#": ["button"],
+                                              ")": "Aide",
+                                              ",": true
+                                            }
+                                          }],
+                                          "": {
+                                            "㐸": {
+                                              ")": 0
+                                            }
+                                          },
+                                          "(": true
+                                        }
+                                      }],
+                                      "": [{
+                                        "䂃": {
+                                          "#": 300004
+                                        }
+                                      }],
+                                      "": {
+                                        "㐸": {
+                                          ")": 0,
+                                          "-": "20dp"
+                                        }
+                                      }
+                                    }
+                                  }]
+                                }
+                              }],
+                              "": {
+                                "㐸": {
+                                  "4": "50%",
+                                  "6": "60dp",
+                                  ")": 0,
+                                  "A": 0
+                                }
+                              }
+                            }
+                          }],
+                          "": [],
+                          "": {
+                            "㐸": {
+                              "D": "100%",
+                              "*": "52dp"
+                            }
+                          }
+                        }
+                      }],
+                      "": {
+                        "㐸": {
+                          "7": "0dp"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }],
+      "props": [{
+        "id": "2617250633136137986",
+        "name": "ttrc_instance_id"
+      }],
+      "error_attribution": {
+        "logging_id": "{\"callsite\":\"{\\\"product\\\":\\\"bloks_unknown\\\",\\\"feature\\\":\\\"com.bloks.www.ap.two_step_verification.entrypoint_async\\\",\\\"integration\\\":\\\"bloks_screen\\\",\\\"oncall\\\":\\\"login_challenges\\\"}\",\"push_phase\":\"C3\",\"version\":1,\"request_id\":\"AFRvJKuXxW3auWdXsZXwCws\",\"www_revision\":1019852061}",
+        "source_map_id": "OWYyaey1"
+      },
+      "action": " (bk.action.core.TakeLast, (bk.action.cds.PushScreen, (bk.action.tree.Make, 13784, 38, (bk.action.tree.Make, 13901, 35, (bk.action.bloks.GetScript, \"1zq8q7vgfm\")), 35, \"com.bloks.www.ap.two_step_verification.code_entry\", 49, 719983200, 45, \"generic_code_entry\", 46, 0, 42, (bk.action.array.Make, (bk.action.tree.Make, 15932, 36, \"none\")), 52, 719983200, 56, (bk.action.core.FuncConst, (bk.action.mins.CallRuntime, 6))), (bk.action.tree.Make, 16087, 38, (bk.action.core.FuncConst, (bk.action.mins.CallRuntime, 6))), (bk.action.mins.CallRuntime, 6, \"params\", (bk.action.string.JsonEncode, (bk.action.mins.CallRuntime, 6, \"server_params\", (bk.action.map.Make, (bk.action.array.Make, \"context_data\", \"device_id\", \"INTERNAL_INFRA_screen_id\"), (bk.action.array.Make, \"Aa1PFM38KF-llD7fcSf60z34a79nf2pHCgI8_yL0frSiTMM2NUoQB3L-_mC5I8K0AXQDrHJEJ6tN8W7aPO2nxMZWljajmDKzDHPSsQqzZE8SLW1t8l8U_6NHm6kwJ61d0aFBvkzGtWnmD4RLQG6zZW0nfIjjOS2gyZTVwrjwqJFNV8yTr_yeDm_0Lsiph5cD9xERwtdhiIqeyb2a0_sjWB0XhdjBB_VGBKklnrqgtdPqU5UbraUDeBlw5GselFK64ZxSiVIXPTeYeufflf45kULbA1CdOIyJLItjALV20RJVrMInv5hiqu8r7o6B2IxyCGAnttHg07bX5owIKySkBsxkvsSKE6bgv2nb2pNlWo6eB5cqnBBBQWmLXO7BDSZu6PXWs5fLl8IcGaI6fe7klfO6T5FaHFXTKRiNajp-aicucCyD6X7O-8oZevwsjxt-F5HHQodtiaBAnSHs9qwT9i5yRkXCXZ25F86vbKdjdLPJ1I3QHg4f0PfdjuUVtKm0gIKMm0u3nhQkHv6sMlabu6CdDQzZXroNBZr-8kVrgooXDVf-kRtDNyHwQcTzEH4hh_vIpN5z39Y2vKjQu6qvAC8wz38xWVzv90DNZWlOQDh7KMnVZYdlgdtPSXVeUOGRPEtQSJicbOfF7WuqTI2WDB5vlwyD8d_VnWY9HcZTfKsQZdctrKNG4Cj2BlG4iwX7fqfOl4L9k2eGbbNNnmsk-rUWYeTo-D7NjxPrp2oN1Us1h49jgEzBVFh4bNJvVpfWBxESUo1RQxne6lHYDb-kkN3N-CSzqD4yufDk68CFCEZRA0jzjqm3f3ghh4Igk1_MkW_QNZA-I_1ShOPDHJkU9Bsg6pVqGFsgDj5XLVczXGhyaPP-qvLiK3PFH5XJRbNwo5bmjd0bBpWlncNXe-SaOm0Qlw--vxcjSFQJGQUC7sCei5YbnH7qaMUd9t2LgRJw7C0BBDazrLTQ5ZFrulpzJFfSGVX-hka75wWlfWwm06ZsshQCcqovEpIdiemuTouIe-iATM0KR6pb-kJW-T8GKqNNMYH9qhArXo0QVUzuahdzQp-yXNQ-D6WVdh8t5N3sY-9Lj1-QYIKaIMtPbFbIEcsHb1skOXv-bfzqLhIbJBr56ICdrwC_GzS3NFocF7U6hHh_nm1GILkIo-94qSbkt9_VRxlYqfK-TPE_S9Siz-WwCIZLjJWl9pcGQenYTOW7pR3_mWG6DPzqx49ScJ4SLqC_HY_rosfqMREcUNGKjH7wxdOT4NFkWsDu0rGippKwrCpllXLg1DuZVrIdoPYqswlbp9JHEzaV72G_Tu3I6t6G8iAJIhrBB8zSeEHHyJobMUUlCGr3s3vfgzt9ZcWaNaxokuqgEQ81cnYteOhSvFFwInw9yL_5dEefqlmwf8YBUqn3XPxphyyvhWR9i3GSncn1h-bxwkKn8LLWf5pHgMui5df_wkxaQbNVRvZiC3gbYTT1feyK18v72kxl-ErCwzHo3Xu21AaHJd7QKdcYNEzz5kxljOn3UirWSQondzqScm-vLlLOz4hWbUcOL4oO_y_9G8aM6Af4dOWuu4Llnp4YbdAP3mqPoGBXC8ySfniZVB0oyzbyPO-A_I-lEL2KIQVf3NO2cD7sq2dOPr_8UUhHAAOtsDctovLKI7d-wkQVstIZ0cdExSu0cvO5-FrFd0abylOuybdxMxTbvZRvVsdhbpdgkNKhuPnCpDPdRGemhhdHalO0KTLRaEO60ME7yDaPPjVc9RCrHFjrI5PEPpF76Pv_dehZ__vFGBvoGe5hbcLLw5se3wfotIyTgxjvaisPcHYfesL7V3CVqNtDqi_JHCRZqoZFdvlOBEGWnBJ6Pzq4D-853x5BOIWHK7rBfxrLXFenCfR1lgXJjFJQ9IPpTZEJtb6I4ugUl7OSn0KfBoZ3E8PmfqlbqTfDpmtsTXodiIQoHjJQCZHLi08hT5bDZVh5bH4diV0RLYfz1Xs3nXNVtZNt3TfytDq6RfsLb6ZGyKVz34Ra5lH9fMV_7GlArcFmwjePcF3pyYlXKOHGeirc_CNeaeJq7IExDGRUiA|aplc\", \"416D444A-C48E-4274-92A2-5C5EAE4F3714\", \"generic_code_entry\"))))), (bk.action.core.GetArg, 0)), 1)"
+    }
+  },
+  "status": "ok"
+}

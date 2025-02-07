@@ -1,0 +1,19 @@
+{
+    "layout": {
+        "bloks_payload": {
+            "data": [],
+            "props": [
+                {
+                    "id": "-1344226955118581685",
+                    "name": "ttrc_instance_id"
+                }
+            ],
+            "error_attribution": {
+                "logging_id": "{\"callsite\":\"{\\\"product\\\":\\\"two_step_verification\\\",\\\"feature\\\":\\\"com.bloks.www.two_step_verification.has_been_allowed.async\\\",\\\"integration\\\":\\\"bloks_screen\\\",\\\"oncall\\\":\\\"two_step_verification\\\"}\",\"push_phase\":\"C3\",\"version\":1,\"request_id\":\"An5-hk5WYC9RwS1TKJvGer-\",\"www_revision\":1019852061}",
+                "source_map_id": "g1g5THm9"
+            },
+            "action": " (bk.action.f32.Const, 1)"
+        }
+    },
+    "status": "ok"
+}
