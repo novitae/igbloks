@@ -2,7 +2,7 @@
 Instagram recently created a technology to make their new app [`Instagram Lite`](https://play.google.com/store/apps/details?id=com.instagram.lite) very light. Instead of using an API that gives back the data to the app, then parsing it, then displaying it, they are now returning the data, and the displaying method. The concept is the same HTML pages, containing what to show and how to show it. [Here's an article talking about it](https://thenewstack.io/instagram-lite-is-no-longer-a-progressive-web-app-now-a-native-app-built-with-bloks/). Will be the `bs4` for `bloks`.
 
 ## Requests
-The requests sent to instagram to get bloks responses are very specific. All the resquests are POST, and must be sent with authorizations.
+The requests sent to instagram to get bloks responses are very specific. All the requests are POST, and must be sent with authorizations.
 ### App
 The urls are looking as following:
 - `https://i.instagram.com/api/v1/bloks/apps/{APP_NAME}/`
