@@ -26,11 +26,11 @@ Which actually looks like this converted to HTML:
 >>> import json
 >>>
 >>> with open("bloks.json", "r") as read: # Opening my json file containing my blok response.
-...     data = json.load(read)["layout"]["bloks_payload"]["tree"] # Placing the tree in variable `data`.
+...     tree = json.load(read)["layout"]["bloks_payload"]["tree"] # Placing the tree in variable `data`.
 ... 
 >>> htmled = bloks_to_html(tree) # Turning the tree into an HTML string.
 >>> # Here, `htmled` contains the same data as the screenshot upper.
->>> soup = BeautifulSoup() # Loading the HTMLed bloks into BeautifulSoup
+>>> soup = BeautifulSoup(htmled, "html.parser") # Loading the HTMLed bloks into BeautifulSoup
 >>>
 >>> # Then, I will search for the attribute of the item that has "Date joined". Since it doesn't change
 >>> # between the responses, it can be our stable point from which we can then search for the date that
